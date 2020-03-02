@@ -1,8 +1,18 @@
+.ui-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .ui-nav-menu {
   background-color: red;
   height: 100vh;
-  position: fixed;
-  right: -$mobile-nav-menu-width;
+  width: 100%;
+  grid-column-start: 2;
   li {
     background: black;
   }
