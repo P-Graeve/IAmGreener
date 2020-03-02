@@ -1,12 +1,9 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.ui-navbar {
+  height: 100px;
+  display: flex;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.ui-navbar-brand {
+  font-size: 50px;
+  color: green;
 }
