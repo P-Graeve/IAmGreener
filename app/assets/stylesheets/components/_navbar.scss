@@ -7,6 +7,7 @@
   padding: 0 40px;
   // position absolutely
   position: absolute;
+  box-shadow: 0 1px 10px rgba(0,0,0,.3);
 }
 
 .ui-navbar-brand {
@@ -25,4 +26,5 @@
 
 .ui-navbar-spacing {
   height: $nav-height;
+  margin-bottom: 15px;
 }
