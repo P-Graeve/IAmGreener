@@ -5,6 +5,17 @@
   position: fixed;
   right: 0;
   top: 0;
+  .ui-nav-menu-top {
+    height: $nav-height;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      margin-right: 10px;
+    }
+  }
+  // pop in top right corner
   li {
 
   }
