@@ -20,3 +20,12 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+// semantic classes
+.none {
+  display: none;
+}
+
+.blur {
+  filter: blur(3px);
+}
