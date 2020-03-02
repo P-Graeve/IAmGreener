@@ -9,20 +9,20 @@ footer{
     margin: 0;
   }
   a {
-  color: white;
-  border-bottom: none;
+    color: white;
+    border-bottom: none;
 
     &:hover{
-        color: #8FCB9B;
-        text-decoration: none;
-      }
+      color: #8FCB9B;
+      text-decoration: none;
     }
-li{
-  list-style: none;
-  align-items: center;
-}
-ul{
-  padding-top: 20px;
-}
+  }
+  li{
+    list-style: none;
+    align-items: center;
+  }
+  ul{
+    padding-top: 20px;
+  }
 }
 
