@@ -1,0 +1,28 @@
+footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  background-color: #345B2A;
+  color: white;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+  a {
+    color: white;
+    border-bottom: none;
+
+    &:hover{
+      color: #8FCB9B;
+      text-decoration: none;
+    }
+  }
+  li{
+    list-style: none;
+    align-items: center;
+  }
+  ul{
+    padding-top: 20px;
+  }
+}
+
