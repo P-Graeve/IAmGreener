@@ -11,3 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: $body-bg-color;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
