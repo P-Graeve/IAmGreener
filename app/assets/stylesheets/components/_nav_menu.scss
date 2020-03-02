@@ -1,18 +1,11 @@
-.ui-nav-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .ui-nav-menu {
   background-color: red;
   height: 100vh;
-  width: 100%;
-  grid-column-start: 2;
+  width: $mobile-nav-menu-width;
+  position: fixed;
+  right: 0;
+  top: 0;
   li {
+
   }
 }
