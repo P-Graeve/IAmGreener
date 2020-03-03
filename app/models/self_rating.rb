@@ -1,0 +1,2 @@
+class SelfRating < ApplicationRecord
+end
