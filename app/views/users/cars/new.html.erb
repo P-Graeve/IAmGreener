@@ -1,9 +1,9 @@
 <%# question 1: do you have a car? %>
-<div class="container">
+<div class="container" data-order="1">
   <div class="row">
     <div class="col-12 col-md-6 offset-md-3 justify-content-center align-items-center">
       <div class="ui-card ui-card-rounded text-center p-3">
-        <h1>Do you have a car?</h1>
+        <h1>Do you own a car?</h1>
 
         <div class="buttons">
           <button id="yes" class="ui-btn px-4">Yes</button>
@@ -18,3 +18,18 @@
 </div>
 
 <%# question 2: what is the model of the car? %>
+<div class="container" data-order="2">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3 justify-content-center align-items-center">
+      <div class="ui-card ui-card-rounded text-center p-3">
+        <h1>What is the car model?</h1>
+
+        <%= simple_form_for(['users', @car]) do |f| %>
+
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>
