@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 2020_03_03_122448) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cars", force: :cascade do |t|
+    t.string "model"
+    t.string "brand"
+    t.integer "year"
+    t.bigint "user_id"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
   create_table "self_ratings", force: :cascade do |t|
     t.integer "overall_score"
     t.integer "pickup_trash_score"
@@ -38,5 +49,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_122448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "users"
   add_foreign_key "self_ratings", "users"
 end

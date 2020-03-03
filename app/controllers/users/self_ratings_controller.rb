@@ -3,7 +3,7 @@ class Users::SelfRatingsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def new
-    @self_rating = SelfRating.new
+    @self_ratings = SelfRating.new
   end
 
   def create

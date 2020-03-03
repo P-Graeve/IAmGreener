@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3 mt-3 col-">
+      <div class="ui-card text-center">
+        <h1>Rate yourself</h1>
+        <p>Reminder: Your grandma will always think your handsome :) </p>
+        <%= simple_form_for(["users", @self_ratings]) do |f| %>
+
+          <%= f.input :overall_score, as: :hidden  %>
+          <p>How good do you think you're with being green in general?</p>
+           <div class="rating-container">
+            <i class="fas fa-leaf" value="1"></i>
+            <i class="fas fa-leaf" value="2"></i>
+            <i class="fas fa-leaf" value="3"></i>
+            <i class="fas fa-leaf" value="4"></i>
+            <i class="fas fa-leaf" value="5"></i>
+          </div>
+
+          <%= f.input :pickup_trash_score, as: :hidden  %>
+          <p>Do you pick up trash? Do you seperate your trash?</p>
+           <div>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+          </div>
+
+          <%= f.input :conscious_score, as: :hidden  %>
+          <p>How much effort do you put in trying to make zero waste?</p>
+           <div>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+            <i class="fas fa-leaf"></i>
+          </div>
+
+          <%= f.submit("submit", class: "ui-btn submit")%>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+

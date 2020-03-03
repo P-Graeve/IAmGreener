@@ -1,0 +1,24 @@
+.car-questions-container {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.car-question-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  transition: left 600ms cubic-bezier(.16,.2,0,1.01);
+}
+
+.positioned-right {
+  left: 100vw;
+}
+
+.positioned-left {
+  left: -100vw;
+}

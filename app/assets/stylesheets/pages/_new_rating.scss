@@ -1,0 +1,27 @@
+.rating-form {
+  margin: 25px 0;
+}
+
+.selected {
+ color: green;
+}
+
+.rating-container {
+  color: none;
+  width: fit-content;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.rating-container i {
+}
+
+.rating-container:hover i {
+  color: green;
+}
+
+
+.rating-container i:hover ~ i {
+  color: black;
+}
