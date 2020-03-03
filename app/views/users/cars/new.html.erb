@@ -28,7 +28,7 @@
       <h1>What is the car model?</h1>
 
       <%= simple_form_for(['users', @car]) do |f| %>
-        <%= f.input :model, collection: Car::BRANDS, input_html: { class: 'select2' } %>
+        <%= f.input :model, collection: Car::BRANDS %>
       <% end %>
 
     </div>
