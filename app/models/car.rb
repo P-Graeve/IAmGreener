@@ -56,6 +56,8 @@ class Car < ApplicationRecord
     "Volvo"
 ]
 
+  validates :brand, :year, :model, presence: true
+
   def fetch_info
     test_brand = 'Hyundai'
     test_model = 'IX35'

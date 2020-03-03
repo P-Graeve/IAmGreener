@@ -9,8 +9,8 @@ const inputChange = () => {
     const brand = document.querySelector('#brand-select').value;
     const year = yearSelectWrapper.querySelector('select').value;
     if (brand && year) {
-      // submit the form
-      document.querySelector('#new_car').submit();
+      // submit the form with Rails fire!
+      Rails.fire(document.querySelector('#new_car'), 'submit');
     }
   }
 }
