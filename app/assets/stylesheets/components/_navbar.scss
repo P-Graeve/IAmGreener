@@ -13,12 +13,32 @@
 
 .ui-navbar-brand {
   font-size: 50px;
-  i {
-    color: green;
-  }
 }
 
 .ui-navbar-spacing {
   height: $nav-height;
   margin-bottom: 15px;
+}
+
+#nav-h2 {
+  color: $white;
+  font-weight: bolder;
+  font-size: 50px;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+#nav-h2 > a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+ .ui-navbar-brand {
+  a {
+    text-decoration: none;
+  }
 }
