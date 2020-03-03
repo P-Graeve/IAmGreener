@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_100431) do
   create_table "cars", force: :cascade do |t|
     t.string "model"
     t.string "brand"
+    t.integer "year"
     t.bigint "user_id"
     t.integer "score"
     t.datetime "created_at", null: false
