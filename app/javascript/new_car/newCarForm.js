@@ -1,13 +1,15 @@
-const fetchBrand = () => {
+const inputChange = () => {
+  console.log('change');
   // check if the model year is already open or not
-  const yearSelect = document.querySelector('#year-select');
+  const yearSelectWrapper = document.querySelector('.car_year');
   if (yearSelect.classList.contains('none')) {
     // remove none class
     yearSelect.classList.remove('none');
   } else {
     // it doesnt have none class, which means we can send the fetchbrands so we can get a model
     const brand = document.querySelector('#brand-select');
-    const year = yearSelect.value;
+    const year = yearSelectWrapper.querySelector('select').value;
+    console.log(brand, year);
   }
 }
 
@@ -16,7 +18,8 @@ const addListeners = () => {
   document.querySelector('#yes-btn').addEventListener('click', nextQuestion);
   // add listener to the form of the car brand
   document.querySelectorAll('.car-info-input').forEach(input => {
-    input.addEventListener('change', fetchBrand);
+    console.log(input);
+    input.addEventListener('change', inputChange);
   });
 }
 
