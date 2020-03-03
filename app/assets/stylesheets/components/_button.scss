@@ -23,6 +23,21 @@
   font-size: 30px;
 }
 
+.home-ui-btn{
+  border-radius: 25px;
+  background-color: #216353;
+  color: white;
+  border: none;
+  padding: 10px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.4);
+  width: 200px;
+  margin-top: 55px;
+
+    &:hover{
+    box-shadow: 1px 1px 10px rgba(0,0,0,.6);
+    }
+}
+
 .no-btn {
   padding: 0;
 }
