@@ -28,9 +28,8 @@
       <h1>What is the car model?</h1>
 
       <%= simple_form_for(['users', @car]) do |f| %>
-        <%= f.input :model, collection: Car::BRANDS, input_html: { id: 'brand-select' } %>
-
-
+        <%= f.input :brand, collection: Car::BRANDS, input_html: { class: 'car-info-input', id: 'brand-select' } %>
+        <%= f.input :year, collection: (1945...(Time.now.year + 1)).sort { |k, v| v <=> k }, input_html: { class: 'car-info-input', id: 'year-select' } %>
       <% end %>
 
     </div>
