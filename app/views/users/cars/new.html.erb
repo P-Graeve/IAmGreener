@@ -1,0 +1,38 @@
+<%# question 1: do you have a car? %>
+<div class="car-questions-container">
+
+  <div class="car-question-container selected" id="question-1" data-order="1">
+
+    <div class="car-question ui-card ui-card-rounded">
+
+      <h1>Do you own a car?</h1>
+
+      <div class="buttons">
+        <button id="yes-btn" class="ui-btn px-4">Yes</button>
+
+        <%# TODO %>
+        <%= link_to "No", root_path, class: 'ui-btn px-4' %>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <%# question 2: what is the model of the car? %>
+
+  <div class="car-question-container positioned-right" id="question-2" data-order="2">
+
+    <div class="car-question ui-card ui-card-rounded">
+
+      <h1>What is the car model?</h1>
+
+      <%= simple_form_for(['users', @car]) do |f| %>
+        <%= f.input :model %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
