@@ -8,6 +8,8 @@
 /.bundle
 # ignore gemlock
 Gemfile.lock
+# ignore yarnlock
+yarn.lock
 
 # Ignore all logfiles and tempfiles.
 /log/*
