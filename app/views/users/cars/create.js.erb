@@ -1,1 +1,10 @@
-console.log('hi');
+// input a new formfor input inside of the form
+document.querySelector('.car_model').classList.remove('none');
+// remove all options from select
+document.querySelector('#car_model').querySelectorAll('option').forEach(option => {
+  option.remove();
+});
+// add option to select
+<% @models.each do |model| %>
+  document.querySelector('#car_model').insertAdjacentHTML('beforeend', '<option><%= model %></option>')
+<% end %>

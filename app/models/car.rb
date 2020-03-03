@@ -58,14 +58,9 @@ class Car < ApplicationRecord
 
   validates :brand, :year, :model, presence: true
 
-  def fetch_info
-    test_brand = 'Hyundai'
-    test_model = 'IX35'
-    test_year = 2011
-    json = open("https://www.carqueryapi.com/api/0.3/?cmd=getTrims&make=#{test_brand}&year=#{test_year}").read;
-    data = JSON.parse(json)["Trims"]
-    data.select do |model|
-      model["model_name"] == test_model.downcase
-    end
+  def fetch_models
+    json = open("https://www.carqueryapi.com/api/0.3/?cmd=getModels&make=#{brand}&year=#{year}").read;
+    data = JSON.parse(json)
+    data["Models"].map { |record| record["model_name"] }
   end
 end
