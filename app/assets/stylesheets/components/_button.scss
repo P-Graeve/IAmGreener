@@ -23,17 +23,18 @@
 .home-ui-btn{
   border-radius: 25px;
   background-color: #345B2A;
-  color: white;
+  color: #FFC65A;
   border: none;
   padding: 10px;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.2);
+  box-shadow: 1px 1px 10px rgba(0,0,0,.4);
   width: 200px;
-  margin-left: 20px;
+  margin-left: 30px;
 
-
-  &:hover{
-      box-shadow: 1px 1px 10px rgba(0,0,0,.5);
-  }
+    &:hover{
+    box-shadow: 1px 1px 10px rgba(0,0,0,.6);
+    color: white;
+    }
+}
 
 .no-btn {
   padding: 0;
