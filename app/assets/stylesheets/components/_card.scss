@@ -4,6 +4,7 @@
   margin: 5px;
   padding: 10px;
 }
+
 .home-ui-card {
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
@@ -18,7 +19,7 @@
   padding-bottom: 5px;
   }
 
-  p{
+  p {
     padding: 10px;
   }
 }
@@ -29,3 +30,6 @@
   }
 }
 
+.ui-card-rounded {
+  border-radius: 10px;
+}
