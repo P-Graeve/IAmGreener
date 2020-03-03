@@ -8,17 +8,37 @@
   // position absolutely
   position: absolute;
   box-shadow: 0 1px 10px rgba(0,0,0,.3);
-  background-color: $main-green;
+  background-color: $navbar-green;
 }
 
 .ui-navbar-brand {
   font-size: 50px;
-  i {
-    color: green;
-  }
 }
 
 .ui-navbar-spacing {
   height: $nav-height;
   // margin-bottom: 15px;
+}
+
+#nav-h2 {
+  color: $white;
+  font-weight: bolder;
+  font-size: 35px;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+#nav-h2 > a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+ .ui-navbar-brand {
+  a {
+    text-decoration: none;
+  }
 }
