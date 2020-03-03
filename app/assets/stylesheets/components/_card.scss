@@ -8,8 +8,19 @@
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
   margin: 10px;
-  padding: 10px;
   margin-bottom: 20px;
+
+
+  img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  padding-bottom: 5px;
+  }
+
+  p{
+    padding: 10px;
+  }
 }
 .ui-card-grid {
   display: grid;
@@ -17,3 +28,4 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
