@@ -3,8 +3,7 @@ require 'open-uri'
 class Car < ApplicationRecord
   belongs_to :user
 
-  # brand
-  # model
+  BRANDS = %w(Hyundai )
 
   def fetch_info
     test_brand = 'Hyundai'
