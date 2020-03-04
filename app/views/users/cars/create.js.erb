@@ -3,10 +3,14 @@ document.querySelector('#loading-msg').classList.add('none');
 // input a new formfor input inside of the form
 document.querySelector('.car_model').classList.remove('none');
 // remove all options from select
-document.querySelector('#car_model').querySelectorAll('option').forEach(option => {
+const select = document.querySelector('#car_model');
+select.querySelectorAll('option').forEach(option => {
   option.remove();
 });
 // add option to select
+// first add another empty one (because we are listening on onChange)
+select.insertAdjacentHTML('afterbegin', '<option></option>');
+
 <% @models.each do |model| %>
-  document.querySelector('#car_model').insertAdjacentHTML('beforeend', '<option><%= model %></option>')
+  select.insertAdjacentHTML('beforeend', '<option><%= model %></option>')
 <% end %>
