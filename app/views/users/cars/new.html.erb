@@ -27,8 +27,13 @@
 
       <h1>What is the car model?</h1>
 
-      <%= simple_form_for(['users', @car]) do |f| %>
-        <%= f.input :model %>
+      <%= simple_form_for(['users', @car], remote: true) do |f| %>
+        <%= f.input :brand, collection: Car::BRANDS, input_html: { class: 'car-info-input', id: 'brand-select' } %>
+        <%= f.input :year, collection: (1945...(Time.now.year + 1)).sort { |k, v| v <=> k }, wrapper_html: { class: 'none' }, input_html: { class: 'car-info-input', id: 'year-select' } %>
+        <%= f.input :model, collection: ['test'], wrapper_html: { class: 'none' } %>
+        <%= hidden_field_tag :times_fetched, 0 %>
+        <div class="none" id="loading-msg">Loading...</div>
+        <%= f.submit class: 'none ui-btn', id: 'submit-create-car-btn' %>
       <% end %>
 
     </div>

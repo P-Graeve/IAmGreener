@@ -1,8 +1,7 @@
 const toggleBlur = () => {
   document.querySelectorAll('header, main, footer').forEach(elem => {
     elem.classList.toggle('blur');
-  })
-
+  });
 }
 
 const openMenu = () => {
