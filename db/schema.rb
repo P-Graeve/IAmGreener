@@ -80,18 +80,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_130453) do
     t.index ["user_id"], name: "index_daily_progresses_on_user_id"
   end
 
-  create_table "homes", force: :cascade do |t|
-    t.string "location"
-    t.string "home_type"
-    t.string "isolation_type"
-    t.integer "inhabitants_size"
-    t.bigint "user_id"
-    t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_homes_on_user_id"
-  end
-
   create_table "notificatons", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
