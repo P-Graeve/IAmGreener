@@ -14,5 +14,5 @@ User.destroy_all
 
 user = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password')
 img = open('https://images.unsplash.com/photo-1472711795975-42c5b4ee828c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
-user.avatar.attach(io: file, filename: 'avatar.png', content_type: 'image/png')
+user.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
 
