@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3 mt-3 col-">
+      <div class="ui-card text-center">
+        <h1>Rate yourself</h1>
+        <p>Reminder: Your grandma will always think your handsome :) </p>
+        <%= simple_form_for(["users", @self_ratings]) do |f| %>
+
+          <%= f.input :pickup_trash_score, as: :hidden  %>
+          <p>Do you pick up trash? Do you seperate your trash?</p>
+           <div class="rating-container pickup-trash-score" data-is-set='false' data-set-value='0'>
+            <div class="leaf" id='pickup-trash-score-1' data-value='1'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='pickup-trash-score-2' data-value='2'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='pickup-trash-score-3' data-value='3'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='pickup-trash-score-4' data-value='4'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='pickup-trash-score-5' data-value='5'><i class="fas fa-leaf"></i></div>
+          </div>
+
+          <%= f.input :conscious_score, as: :hidden  %>
+          <p>How much effort do you put in trying to make zero waste?</p>
+           <div class="rating-container conscious-score" data-is-set='false' data-set-value='0'>
+            <div class="leaf" id='conscious-score-1' data-value='1'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='conscious-score-2' data-value='2'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='conscious-score-3' data-value='3'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='conscious-score-4' data-value='4'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='conscious-score-5' data-value='5'><i class="fas fa-leaf"></i></div>
+          </div>
+
+          <%= f.input :overall_score, as: :hidden  %>
+          <p>How good do you think you're with being green in general?</p>
+           <div class="rating-container overall-score" data-is-set='false' data-set-value='0'>
+            <div class="leaf" id='overall-score-1' data-value='1'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='overall-score-2' data-value='2'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='overall-score-3' data-value='3'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='overall-score-4' data-value='4'><i class="fas fa-leaf"></i></div>
+            <div class="leaf" id='overall-score-5' data-value='5'><i class="fas fa-leaf"></i></div>
+          </div>
+
+          <%= f.submit("submit", class: "ui-btn submit")%>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
