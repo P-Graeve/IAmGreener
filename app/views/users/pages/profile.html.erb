@@ -4,7 +4,7 @@
       <h1>Welcome to your profile</h1>
 
       <div class="profile-avatar">
-        <%= cl_image_tag @user.avatar.nil? ? @user.avatar.key : 'ZiNe7VWmqwQDXheoS15QJ4oe', height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @user.avatar.attached? ? @user.avatar.key : 'ZiNe7VWmqwQDXheoS15QJ4oe', height: 300, width: 400, crop: :fill %>
       </div>
 
       <div class="info">
@@ -12,8 +12,7 @@
         <p>Username: <%= @user.username %></p>
         <p>First Name:</p>
         <p>Last Name:</p>
-        <p>E-Mail:</p>
-        <p>Password:</p>
+        <p>E-Mail: <%= @user.email %></p>
         <%= link_to "update password", edit_user_password_path, class: "profile-ui-btn" %>
       </div>
 
