@@ -3,7 +3,8 @@ document.querySelector('#loading-msg').classList.add('none');
 // input a new formfor input inside of the form
 document.querySelector('.car_model').classList.remove('none');
 // remove all options from select
-const select = document.querySelector('#car_model');
+let select = document.querySelector('#car_model');
+
 select.querySelectorAll('option').forEach(option => {
   option.remove();
 });
