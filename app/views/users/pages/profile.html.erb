@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Welcome to your profile</h1>
+
+      <div class="profile-avatar">
+
+      </div>
+
+      <div class="info">
+        <h2>Account:</h2>
+        <p>Username: <%=@user%></p>
+        <p>First Name:</p>
+        <p>Last Name:</p>
+        <p>E-Mail:</p>
+        <p>Password:</p>
+        <%= link_to "update password", edit_user_password_path, class: "profile-ui-btn" %>
+      </div>
+
+    </div>
+  </div>
+</div>
