@@ -9,6 +9,8 @@ const inputChange = () => {
     const brand = document.querySelector('#brand-select').value;
     const year = yearSelectWrapper.querySelector('select').value;
     if (brand && year) {
+      // set loading up
+      document.querySelector('#loading-msg').classList.remove('none');
       // submit the form with Rails fire!
       Rails.fire(document.querySelector('#new_car'), 'submit');
     }
@@ -33,7 +35,6 @@ const nextQuestion = () => {
   // get the element with the current order in the id and move it to the left
   const thisElem = document.querySelector(`#question-${order}`);
   const nextElem = document.querySelector(`#question-${order + 1}`);
-  console.log(thisElem, nextElem);
   thisElem.classList.remove('selected');
   thisElem.classList.add('positioned-left');
   setTimeout(() => {
