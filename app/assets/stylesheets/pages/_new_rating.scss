@@ -12,11 +12,21 @@
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
+  display: flex;
 }
 
 .rating-container i {
 }
 
+.leaf {
+  cursor: pointer;
+  padding: 0 2px;
+  // display: inline-block;
+}
+
+.green {
+  color: green;
+}
 // .rating-container:hover i {
 //   color: green;
 // }
