@@ -6,10 +6,23 @@ class Users::CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    @models = @car.fetch_models
-    respond_to do |format|
-      format.html { render :new }
-      format.js
+    # check if the car is already provided with all props (brand, year and model)
+    if @car.valid?
+      respond_to do |format|
+        # redirect to dashboard page
+        format.html { redirect_to root_path }
+        # redirect to dashboard page
+        format.js { render :create_car }
+      end
+    else
+      # fetch the car models
+      @models = @car.fetch_models
+      respond_to do |format|
+        # render new when javascript is not enabled
+        format.html { render :new }
+        # otherwise run javascript erb
+        format.js
+      end
     end
   end
 

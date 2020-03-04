@@ -14,3 +14,9 @@ select.insertAdjacentHTML('afterbegin', '<option></option>');
 <% @models.each do |model| %>
   select.insertAdjacentHTML('beforeend', '<option><%= model %></option>')
 <% end %>
+
+// also add an event listener to expose the submit button
+select.addEventListener('change', function() {
+  // expose the submit button
+  document.querySelector('#submit-create-car-btn').classList.remove('none');
+});
