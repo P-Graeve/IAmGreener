@@ -33,7 +33,7 @@
         <%= f.input :model, collection: ['test'], wrapper_html: { class: 'none' } %>
         <%= hidden_field_tag :times_fetched, 0 %>
         <div class="none" id="loading-msg">Loading...</div>
-        <%= f.submit class: 'none ui-btn', id: 'submit-create-car-btn' %>
+        <%= f.submit "Submit", class: 'none ui-btn', id: 'submit-create-car-btn' %>
       <% end %>
 
     </div>
