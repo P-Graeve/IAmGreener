@@ -4,12 +4,12 @@
       <h1>Welcome to your profile</h1>
 
       <div class="profile-avatar">
-        <%= cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @user.avatar.nil? ? @user.avatar.key : 'ZiNe7VWmqwQDXheoS15QJ4oe', height: 300, width: 400, crop: :fill %>
       </div>
 
       <div class="info">
         <h2>Account:</h2>
-        <p>Username: <%=@user%></p>
+        <p>Username: <%= @user.username %></p>
         <p>First Name:</p>
         <p>Last Name:</p>
         <p>E-Mail:</p>
