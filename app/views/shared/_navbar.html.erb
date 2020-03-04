@@ -1,14 +1,28 @@
 <header class="ui-navbar">
   <div class="ui-navbar-brand">
     <%= link_to root_path do %>
-     <h2 id="nav-h2">Greener</h2>
+    <h2 id="nav-h2">Greener</h2>
     <% end %>
   </div>
-
-  <div>
-    <button class="ui-icon-btn" id="open-menu-btn">
-      <i class="fas fa-chevron-down"></i>
-    </button>
+  <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center">
+      <span class='font-weight-bold text-white'>
+        <%= current_user.tree_score %>
+        <i class="fas fa-tree nav-icons icon-score"></i>
+      </span>
+    </div>
+    <div class="d-flex align-items-center">
+      <span class='font-weight-bold text-white'>
+        <%= current_user.notificatons.size %>
+      <i class="fas fa-bell nav-icons icon-score"></i>
+      </span>
+    </div>
+    <div class="d-flex align-items-center">
+      <%= cl_image_tag current_user.avatar.key, class: "avatar-large" %>
+      <button class="ui-icon-btn" id="open-menu-btn">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
   </div>
 </header>
 
