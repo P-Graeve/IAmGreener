@@ -17,11 +17,14 @@ const inputChange = () => {
 
 const addListeners = () => {
   // add listener to the yes button on the form
-  document.querySelector('#yes-btn').addEventListener('click', nextQuestion);
-  // add listener to the form of the car brand
-  document.querySelectorAll('.car-info-input').forEach(input => {
-    input.addEventListener('change', inputChange);
-  });
+  const btn =   document.querySelector('#yes-btn');
+  if (btn) {
+     btn.addEventListener('click', nextQuestion);
+    // add listener to the form of the car brand
+    document.querySelectorAll('.car-info-input').forEach(input => {
+      input.addEventListener('change', inputChange);
+    });
+  }
 }
 
 const nextQuestion = () => {
