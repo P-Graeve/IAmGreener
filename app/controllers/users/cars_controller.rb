@@ -8,6 +8,9 @@ class Users::CarsController < ApplicationController
     @car.user = current_user
     # check if the car is already provided with all props (brand, year and model)
     if @car.valid?
+      # save the car
+      @car.save
+
       respond_to do |format|
         # redirect to dashboard page
         format.html { redirect_to root_path }
