@@ -7,8 +7,8 @@ export const rateYourselfHover = () => {
   const icons = document.querySelectorAll(".rating-container i");
   console.log(icons);
   icons.forEach(icon => {
-    icon.addEventListener("click", (e) => {
-      console.log(e);
+    icon.addEventListener("mousedown", (e) => {
+      //query Selector leaves that are green
     })
   })
 }
