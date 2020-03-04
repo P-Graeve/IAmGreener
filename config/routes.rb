@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'self_ratings/new'
-  post 'self_ratings/create'
   get 'dashboard', to: 'pages#dashboard'
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
