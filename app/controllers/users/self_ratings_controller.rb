@@ -1,7 +1,4 @@
 class Users::SelfRatingsController < ApplicationController
-  # Pls make it right as soon as we link the sign in path
-  skip_before_action :authenticate_user!
-
   def new
     @self_rating = SelfRating.new
   end
