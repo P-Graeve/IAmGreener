@@ -63,18 +63,20 @@ const hoverIcon = e => {
 
 export const rateYourselfHover = () => {
   const form = document.querySelector("#new_self_rating");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    submitRating(form);
-  });
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      submitRating(form);
+    });
 
-  const icons = document.querySelectorAll(".rating-container .leaf");
-  console.log(icons);
-  icons.forEach(icon => {
-    icon.addEventListener('mouseover', hoverIcon);
-    icon.addEventListener('mouseout', hoverOut);
-    icon.addEventListener("click", clickIcon);
-  });
+    const icons = document.querySelectorAll(".rating-container .leaf");
+    console.log(icons);
+    icons.forEach(icon => {
+      icon.addEventListener('mouseover', hoverIcon);
+      icon.addEventListener('mouseout', hoverOut);
+      icon.addEventListener("click", clickIcon);
+    });
+  }
 }
 
 // hold green leaves when clicked on leaf:
