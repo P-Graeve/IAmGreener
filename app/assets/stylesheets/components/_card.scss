@@ -23,6 +23,32 @@
     padding: 10px;
   }
 }
+
+.team-ui-cards{
+  display: flex;
+  justify-content: space-between;
+}
+
+  .team-ui-card{
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    img {
+      height: 250px;
+      object-fit: cover;
+      position: center;
+      width: 200px;
+    }
+
+    p{
+      padding-left: 10px;
+      padding-top: 5px;
+    }
+
+  }
+
 .ui-card-grid {
   display: grid;
   @media (min-width: 1000px) {
@@ -33,3 +59,4 @@
 .ui-card-rounded {
   border-radius: 10px;
 }
+
