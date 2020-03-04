@@ -7,7 +7,6 @@ class Users::SelfRatingsController < ApplicationController
   end
 
   def create
-    raise
     @self_rating = SelfRating.new(self_rating_params)
     if @self_rating.save
       redirect_to root_path
