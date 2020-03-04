@@ -19,10 +19,12 @@
   border: white 1px solid;
 }
 .profile-avatar{
+  margin-bottom: 10px;
   img {
     border-radius: 50%;
     height: 100px;
     width: 100px;
     object-fit: cover;
+    margin-bottom: 10px;
   }
 }
