@@ -11,8 +11,13 @@ const inputChange = () => {
     if (brand && year) {
       // set loading up
       document.querySelector('#loading-msg').classList.remove('none');
-      // submit the form with Rails fire!
-      Rails.fire(document.querySelector('#new_car'), 'submit');
+      // check if submit button is already open or not
+      if (!(document.querySelector('#submit-create-car-btn').classList.contains('none'))) {
+        console.log('already contains it!');
+      } else {
+        // submit the form with Rails fire!
+        Rails.fire(document.querySelector('#new_car'), 'submit');
+      }
     }
   }
 }
