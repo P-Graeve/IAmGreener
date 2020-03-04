@@ -32,6 +32,7 @@
         <%= f.input :year, collection: (1945...(Time.now.year + 1)).sort { |k, v| v <=> k }, wrapper_html: { class: 'none' }, input_html: { class: 'car-info-input', id: 'year-select' } %>
         <%= f.input :model, collection: ['test'], wrapper_html: { class: 'none' } %>
         <div class="none" id="loading-msg">Loading...</div>
+        <%= f.submit class: 'none' %>
       <% end %>
 
     </div>
