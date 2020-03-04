@@ -1,0 +1,35 @@
+// declare function
+function exposeSubmit() {
+  // expose the submit button
+  document.querySelector('#submit-create-car-btn').classList.remove('none');
+}
+
+// remove the loading msg
+document.querySelector('#loading-msg').classList.add('none');
+// set the input to the amount of times fetched
+document.querySelector('#times_fetched').value = '<%= @times_fetched %>';
+
+<% if @times_fetched <= 1 %>
+  // input a new formfor input inside of the form
+  document.querySelector('.car_model').classList.remove('none');
+  // remove all options from select
+  let select = document.querySelector('#car_model');
+
+  select.querySelectorAll('option').forEach(option => {
+    option.remove();
+  });
+  // first add another empty one (because we are listening on onChange)
+  select.insertAdjacentHTML('afterbegin', '<option></option>');
+  // add option to select
+  <% @models.each do |model| %>
+    select.insertAdjacentHTML('beforeend', '<option><%= model %></option>')
+  <% end %>
+
+  // also add an event listener to expose the submit button
+  select.addEventListener('change', exposeSubmit);
+
+<% else %>
+
+  console.log('nah, fetched already');
+
+<% end %>
