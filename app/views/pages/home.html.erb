@@ -1,11 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<button class="ui-btn">Click here!</button>
+<div class="banner">
+  <h1>How green are you?</h1>
+  <button class="home-ui-btn">Become greener</button>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <div class="ui-card">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt cupiditate sequi ut dolore aspernatur tenetur exercitationem? Eius voluptates sit eligendi quidem, aperiam ut, praesentium eum ipsam numquam exercitationem veniam vitae!</p>
+    <div class="col-12">
+      <h1>Who is green:</h1>
+      <div class="ui-card-grid">
+        <div class="home-ui-card">
+          <img src="https://images.unsplash.com/photo-1471520201477-47a62a269a87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt cupiditate sequi ut dolore aspernatur tenetur exercitationem? Eius voluptates sit eligendi quidem, aperiam ut, praesentium eum ipsam numquam exercitationem veniam vitae!</p>
+        </div>
+
+        <div class="home-ui-card">
+          <img src="https://images.unsplash.com/photo-1577320773625-f3133428d1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt cupiditate sequi ut dolore aspernatur tenetur exercitationem? Eius voluptates sit eligendi quidem, aperiam ut, praesentium eum ipsam numquam exercitationem veniam vitae!</p>
+        </div>
+
+        <div class="home-ui-card">
+          <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt cupiditate sequi ut dolore aspernatur tenetur exercitationem? Eius voluptates sit eligendi quidem, aperiam ut, praesentium eum ipsam numquam exercitationem veniam vitae!</p>
+        </div>
+      </div>
+      <div class="team-info">
+        <h2>Our team:</h2>
+        <div class="team-avatar-container">
+          <p><%=image_tag("Tice") %></p>
+          <p><%=image_tag("Philippa")%></p>
+          <p><%=image_tag("Svenia")%></p>
+        </div>
       </div>
 
     </div>
