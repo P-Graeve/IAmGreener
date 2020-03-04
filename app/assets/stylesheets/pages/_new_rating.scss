@@ -2,7 +2,6 @@
   margin: 25px 0;
 }
 
-
 .rating-container {
   color: none;
   width: fit-content;
@@ -13,6 +12,11 @@
   .selected {
    color: green;
   }
+}
+
+.ui-rating-card {
+  padding: 20px 50px;
+  max-width: 500px;
 }
 
 .rating-container i {

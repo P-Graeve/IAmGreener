@@ -6,7 +6,7 @@ class Users::SelfRatingsController < ApplicationController
   def create
     @self_rating = SelfRating.new(self_rating_params)
     if @self_rating.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end
