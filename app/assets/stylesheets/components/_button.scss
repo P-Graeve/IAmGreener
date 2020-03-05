@@ -6,13 +6,11 @@
   margin: 25px;
   padding: 10px;
   box-shadow: 1px 1px 10px rgba(0,0,0,.2);
-
   &:hover{
-      box-shadow: 1px 1px 10px rgba(0,0,0,.5);
-      color: white;
-      text-decoration: none;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+    color: white;
+    text-decoration: none;
   }
-
 }
 
 // a class to make a button not look like a button and just show what is inside (icon)
@@ -34,10 +32,11 @@
   box-shadow: 1px 1px 10px rgba(0,0,0,.4);
   width: 200px;
   margin-top: 55px;
-
-    &:hover{
-    box-shadow: 1px 1px 10px rgba(0,0,0,.6);
-    }
+  &:hover{
+  box-shadow: 1px 1px 10px rgba(0,0,0,.6);
+  color: white;
+  text-decoration: none;
+  }
 }
 
 .no-btn {
