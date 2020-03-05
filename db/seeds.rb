@@ -24,4 +24,12 @@ user.save
   notif.save
 end
 
+# generate seeds
+Category.create(name: 'Water');
+Category.create(name: 'Home');
+Category.create(name: 'Waste');
+Category.create(name: 'Transportation');
+Category.create(name: 'Energy');
+Category.create(name: 'Food');
+
 puts "Success! You have #{User.count} users, #{Notificaton.count} notifications"
