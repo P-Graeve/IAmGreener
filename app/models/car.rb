@@ -64,7 +64,7 @@ class Car < ApplicationRecord
     data["Models"].map { |record| record["model_name"] }
   end
 
-  def fetch_lkm
+  def fetch_mpg
     json = open("https://www.carqueryapi.com/api/0.3/?cmd=getTrims&make=#{brand}&year=#{year}&model=#{model}").read
     data = JSON.parse(json)
     lkm = []
@@ -84,6 +84,6 @@ class Car < ApplicationRecord
     end
 
     # get the average lkm
-    lkm.sum / lkm.size.to_f.round(1)
+    (lkm.sum / lkm.size.to_f).round(1)
   end
 end
