@@ -34,9 +34,9 @@ class User < ApplicationRecord
 
   def trees_this_week
     # get the trees from this past week in an array
-    pgs = current_user.daily_progresses.last(7)
+    pgs = daily_progresses.last(7)
     pgs.map do |progress|
-      progress.tree_count
+      progress.tree_amount
     end
   end
 end
