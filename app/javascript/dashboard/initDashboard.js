@@ -1,8 +1,8 @@
-const removeAppearClass = () => {
-  const elems = document.querySelectorAll('.appear');
+const addAppearClass = () => {
+  const elems = document.querySelectorAll('.add-appear');
   if (elems) {
     elems.forEach(elem => {
-      elem.classList.remove('appear');
+      elem.classList.add('appear');
     });
   }
 }
@@ -10,6 +10,6 @@ const removeAppearClass = () => {
 export const initDashboard = () => {
   // remove all appear classes from elements on dom content loaded
   document.addEventListener('DOMContentLoaded', () => {
-    removeAppearClass();
+    setTimeout(addAppearClass, 10)
   });
 }

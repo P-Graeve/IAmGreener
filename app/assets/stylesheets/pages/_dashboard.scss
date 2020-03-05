@@ -2,18 +2,37 @@
   margin-bottom: 15px;
 }
 
+$flash-height: 50px;
+
+.ui-flash-container {
+  position: relative;
+}
+
+.ui-flash-spacing {
+  height: $flash-height;
+}
+
 .ui-flash {
   z-index: -1;
-  height: 50px;
+  height: $flash-height;
   position: absolute;
+  top: -50px;
+  width: 100%;
   overflow: hidden;
   font-weight: bold;
   text-transform: uppercase;
   color: $gray;
   background-color: $maybe;
-  transition: height 2000ms ease-out;
+  transition: top 1000ms ease-out;
+}
+
+.ui-flash-details {
+  height: $flash-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .appear {
-  height: 0px;
+  top: 0;
 }
