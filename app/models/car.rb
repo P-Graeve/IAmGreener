@@ -65,10 +65,26 @@ class Car < ApplicationRecord
     data["Models"].map { |record| record["model_name"] }
   end
 
-  def fetch_info
-    json = open("https://carqueryapi.com/api/0.3/?cmd=getTrims&make=#{brand}&year=#{year}&model=#{model}").read
+  def fetch_lkm
+    json = open("https://www.carqueryapi.com/api/0.3/?cmd=getTrims&make=#{brand}&year=#{year}&model=#{model}").read
     data = JSON.parse(json)
-    data
-    binding.pry
+    lkm = []
+    data["Trims"].each do |trim|
+      # for each trim that we find, check if there is a lkm record for highway, mixed and city
+      if !trim["model_lkm_hwy"].nil?
+        lkm << trim["model_lkm_hwy"].to_i
+      end
+
+      if !trim["model_lkm_mixed"].nil?
+        lkm << trim["model_lkm_mixed"].to_i
+      end
+
+      if !trim["model_lkm_city"].nil?
+        lkm << trim["model_lkm_city"].to_i
+      end
+    end
+
+    # get the average lkm
+    lkm.sum / lkm.size.to_f.round(1)
   end
 end
