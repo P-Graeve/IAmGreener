@@ -1,17 +1,19 @@
-.container h2{
+.container h2 {
   margin-bottom: 15px;
 }
 
 .ui-flash {
+  z-index: -1;
   height: 50px;
+  position: absolute;
+  overflow: hidden;
   font-weight: bold;
   text-transform: uppercase;
   color: $gray;
   background-color: $maybe;
-  transition: height 200ms ease-out;
+  transition: height 2000ms ease-out;
 }
 
 .appear {
-  height: 0;
-  overflow: hidden;
+  height: 0px;
 }
