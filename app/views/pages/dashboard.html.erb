@@ -1,5 +1,10 @@
-<section class="ui-flash warning">
-  <span>Keep up your daily streak! (<%= current_user.streak_count %>)</span>
-</section>
+<% if !current_user.streak_count.zero? %>
+
+  <section class="ui-flash warning">
+    <span>Keep up your daily streak! (<%= current_user.streak_count %>)</span>
+    <i class="fas fa-bolt"></i>
+  </section>
+
+<% end %>
 
 <%= render 'shared/categories', categories: @categories %>
