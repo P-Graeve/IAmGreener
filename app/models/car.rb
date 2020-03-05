@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'pry-byebug'
 
 class Car < ApplicationRecord
   belongs_to :user
@@ -59,8 +60,15 @@ class Car < ApplicationRecord
   validates :brand, :year, :model, presence: true
 
   def fetch_models
-    json = open("https://www.carqueryapi.com/api/0.3/?cmd=getModels&make=#{brand}&year=#{year}").read;
+    json = open("https://www.carqueryapi.com/api/0.3/?cmd=getModels&make=#{brand}&year=#{year}").read
     data = JSON.parse(json)
     data["Models"].map { |record| record["model_name"] }
+  end
+
+  def fetch_info
+    json = open("https://carqueryapi.com/api/0.3/?cmd=getTrims&make=#{brand}&year=#{year}&model=#{model}").read
+    data = JSON.parse(json)
+    data
+    binding.pry
   end
 end
