@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def login
     @login || self.username || self.email
   end
+
+  def streak_count
+    5
+  end
 end
