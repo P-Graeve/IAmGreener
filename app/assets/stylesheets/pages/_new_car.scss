@@ -15,10 +15,28 @@
   transition: left 600ms cubic-bezier(.16,.2,0,1.01);
 }
 
+.car-question {
+  margin-top: 90px;
+  max-width: 450px;
+  padding: 40px 30px;
+  h1 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
 .positioned-right {
   left: 100vw;
 }
 
 .positioned-left {
   left: -100vw;
+}
+
+form.new_car .form-group {
+  text-align: left;
+}
+
+#submit-create-car-btn {
+  padding: 15px 20px;
 }

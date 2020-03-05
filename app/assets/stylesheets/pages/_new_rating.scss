@@ -2,10 +2,6 @@
   margin: 25px 0;
 }
 
-.selected {
- color: green;
-}
-
 .rating-container {
   color: none;
   width: fit-content;
@@ -13,6 +9,14 @@
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
+  .selected {
+   color: green;
+  }
+}
+
+.ui-rating-card {
+  padding: 20px 50px;
+  max-width: 500px;
 }
 
 .rating-container i {
