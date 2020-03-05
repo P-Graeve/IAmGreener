@@ -28,6 +28,11 @@ class Users::CarsController < ApplicationController
       if @car.valid?
         # save the car
         @car.save
+        # fetch the info we need from the api
+        if @car.update(lkm: @car.fetch_mpg)
+        else
+          raise
+        end
 
         respond_to do |format|
           # redirect to dashboard page
@@ -50,10 +55,6 @@ class Users::CarsController < ApplicationController
   end
 
   private
-
-  def fetch_models(car)
-
-  end
 
   def car_params
     params.require(:car).permit(:brand, :year, :model)

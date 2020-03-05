@@ -50,13 +50,6 @@
 
   }
 
-.ui-card-grid {
-  display: grid;
-  @media (min-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 .ui-card-rounded {
   border-radius: 10px;
 }
