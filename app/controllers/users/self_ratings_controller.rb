@@ -1,7 +1,4 @@
 class Users::SelfRatingsController < ApplicationController
-  # Pls make it right as soon as we link the sign in path
-  skip_before_action :authenticate_user!
-
   def new
     @self_rating = SelfRating.new
   end
@@ -9,7 +6,7 @@ class Users::SelfRatingsController < ApplicationController
   def create
     @self_rating = SelfRating.new(self_rating_params)
     if @self_rating.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end

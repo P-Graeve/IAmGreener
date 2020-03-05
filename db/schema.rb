@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_114553) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "mpg"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
@@ -81,24 +82,12 @@ ActiveRecord::Schema.define(version: 2020_03_05_114553) do
     t.index ["user_id"], name: "index_daily_progresses_on_user_id"
   end
 
-  create_table "homes", force: :cascade do |t|
-    t.string "location"
-    t.string "home_type"
-    t.string "isolation_type"
-    t.integer "inhabitants_size"
-    t.bigint "user_id"
-    t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_homes_on_user_id"
-  end
-
-  create_table "notificatons", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notificatons_on_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profile_badges", force: :cascade do |t|
@@ -151,7 +140,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_114553) do
   add_foreign_key "challenges", "categories"
   add_foreign_key "daily_progresses", "challenges"
   add_foreign_key "daily_progresses", "users"
-  add_foreign_key "notificatons", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "profile_badges", "badges"
   add_foreign_key "profile_badges", "users"
   add_foreign_key "self_ratings", "users"

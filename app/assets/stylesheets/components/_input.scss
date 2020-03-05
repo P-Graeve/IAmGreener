@@ -7,4 +7,24 @@
   display: none;
 }
 
+label.file {
+  border: 1px solid #dfdfdf;
+  display: block;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #efefef;
+  padding: 4px 25px;
+  transition: opacity 100ms ease-out;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
 
+.avatar-preview {
+  width: 30px;
+  border-radius: 50%;
+}

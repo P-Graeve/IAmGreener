@@ -8,19 +8,19 @@
 require "open-uri"
 
 puts 'Cleaning DB...'
-Notificaton.destroy_all
+Notification.destroy_all
 Car.destroy_all
 User.destroy_all
 
-user = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
+user5 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
 img = open('https://images.unsplash.com/photo-1472711795975-42c5b4ee828c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
-user.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
-user.save
+user5.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
+user5.save
 
 # generate some fake notifications
 4.times do
-  notif = Notificaton.new(message: Faker::Hacker.say_something_smart)
-  notif.user = user
+  notif = Notification.new(message: Faker::Hacker.say_something_smart)
+  notif.user = user5
   notif.save
 end
 
@@ -44,5 +44,8 @@ Challenge.create(category: water, description: 'Leaving the tap running when bru
 Challenge.create(category: water, description: 'Around 9% of total household water use goes down the toilet! When you can, choose the half flush when you use the loo. WELS 4 star toilets use 3L for half flush and 4.5 for full flush.', title: 'Reduce water waste, choose the half flush!');
 Challenge.create(category: water, description: 'Almost 1/4 of household water is used in the shower. Cutting your shower time by just 2 minutes can result in a water saving of up to 30%. Try using a shower timer or your favourite 4 minute song to time your showers.', title: 'Save water and energy by reducing shower times to 4 minutes.');
 
+# generate a car
+Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user5, mpg: 26.3)
 
-puts "Success! You have #{User.count} users, #{Notificaton.count} notifications"
+puts "Success! You have #{Car.count} car, #{Notification.count} notifications"
+puts "Login: Frans, Password"
