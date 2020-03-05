@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def streak_count
     5
   end
+
+  def trees_this_week
+
+  end
 end
