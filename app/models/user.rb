@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   has_many :notifications
+  has_many :profile_badges
+  has_many :badges, through: :profile_badges
 
   # Include default devise modules. Others available are:
   has_one_attached :avatar# Include default devise modules. Others available are:

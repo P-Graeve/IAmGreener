@@ -2,6 +2,12 @@
   <%= render 'shared/daily_streak_flash' %>
 <% end %>
 
-<%= render 'shared/progress_graph' %>
+<div class="container">
+  <%= render 'shared/progress_graph' %>
+</div>
 
-<%= render 'shared/categories', categories: @categories %>
+
+<div class="container">
+      <%= render 'shared/categories', categories: @categories %>
+      <%= render 'shared/badges', badges: @badges %>
+</div>

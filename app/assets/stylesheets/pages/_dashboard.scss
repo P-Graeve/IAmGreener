@@ -36,3 +36,16 @@ $flash-height: 50px;
 .appear {
   top: 0;
 }
+
+.badges-ui-card img {
+  height: 100px;
+  margin: 5px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.badges-ui-card p {
+  padding: 0;
+  font-weight: bold;
+  margin: 10px;
+}
