@@ -21,19 +21,19 @@ user6.save
 # generate some fake notifications
 #4.times do
 notif1 = Notification.new(message: "Matthijs saved water by skipping the shower today!")#Faker::Hacker.say_something_smart)
-notif1.user = user5
+notif1.user = user6
 notif1.save
 
 notif2 = Notification.new(message: "Philippa wrapped her lunch in a beeswax wrapping paper.")#Faker::Hacker.say_something_smart)
-notif2.user = user5
+notif2.user = user6
 notif2.save
 
 notif3 = Notification.new(message: "Svenia picked up trash.")#Faker::Hacker.say_something_smart)
-notif3.user = user5
+notif3.user = user6
 notif3.save
 
 notif4 = Notification.new(message: "Lisa hasn't bought anything with plastic on it in 3 days!")#Faker::Hacker.say_something_smart)
-notif4.user = user5
+notif4.user = user6
 notif4.save
 #end
 
@@ -104,9 +104,9 @@ badge1 = Badge.create(name: 'Started saving the world', description: 'registered
 badge2 = Badge.create(name: 'Trash Panda', description: 'picked up other peoples trash', icon_url: '010-shield-1.svg')
 badge3 = Badge.create(name: 'Zero Waste Queen', description: 'refuses buying packaged food', icon_url: '004-medal.svg')
 
-pbadge1 = ProfileBadge.create(user: user5, badge: badge1, stars: 2)
-pbadge2 = ProfileBadge.create(user: user5, badge: badge2, stars: 1)
-pbadge3 = ProfileBadge.create(user: user5, badge: badge3, stars: 3)
+pbadge1 = ProfileBadge.create(user: user6, badge: badge1, stars: 2)
+pbadge2 = ProfileBadge.create(user: user6, badge: badge2, stars: 1)
+pbadge3 = ProfileBadge.create(user: user6, badge: badge3, stars: 3)
 
 
 

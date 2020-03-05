@@ -21,7 +21,9 @@
       </span>
     </div>
     <div class="d-flex align-items-center">
+      <%= link_to dashboard_path do %>
       <%= cl_image_tag current_user.avatar.key, class: "avatar-large nav-avatar" %>
+      <% end %>
       <button class="ui-icon-btn" id="open-menu-btn">
         <i class="fas fa-chevron-down"></i>
       </button>
