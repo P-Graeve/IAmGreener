@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'pry-byebug'
 
 class Car < ApplicationRecord
   belongs_to :user
