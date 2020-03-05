@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   has_many :notifications
+  has_many :daily_progresses
   has_many :profile_badges
   has_many :badges, through: :profile_badges
 
@@ -32,6 +33,10 @@ class User < ApplicationRecord
   end
 
   def trees_this_week
-
+    # get the trees from this past week in an array
+    pgs = current_user.daily_progresses.last(7)
+    pgs.map do |progress|
+      progress.tree_count
+    end
   end
 end
