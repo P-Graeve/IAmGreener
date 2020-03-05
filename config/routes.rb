@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :cars, only: [:new, :create]
     get "profile",  to: 'pages#profile', as: :profile
+    resources :notifications, only: [:index]
     resources :self_ratings, only: [:new, :create]
   end
 end
