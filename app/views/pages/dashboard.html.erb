@@ -1,5 +1,7 @@
 <% if !current_user.streak_count.zero? %>
-  <%= render 'shared/daily_streak_flash', current_user: current_user %>
+  <%= render 'shared/daily_streak_flash' %>
 <% end %>
+
+<%= render 'shared/progress_graph' %>
 
 <%= render 'shared/categories', categories: @categories %>
