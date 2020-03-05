@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <h1><%= @tip.title %></h1>
+      <%= image_tag(@tip.image_url, class: 'tip_image')  %>
+      <p><%= @tip.description %></p>
+      <%= link_to "Go back to tips", category_path, class: "tip-btn" %>
+      <div class='spacer'></div>
+    </div>
+  </div>
+</div>

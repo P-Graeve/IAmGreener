@@ -5,13 +5,27 @@
   <div class="row">
     <div class="col-12">
       <h2>Tips:</h2>
-        <% @category.tips.each do |tip| %>
-          <p><%= tip.title %></p>
-          <p><%= tip.description %></p>
-          <img src="<%= tip.image_url %>" alt="">
-        <% end %>
+      <% @category.tips.each do |tip| %>
+      <div class="category-cards">
+        <img src="<%= tip.image_url %>" alt="">
+        <div class="category-card-infos">
+          <h3><%= tip.title %></h3>
+          <p><%= tip.description[0..150] %></p>
+          <%= link_to "Read more..", tip_path  %>
+        </div>
+      </div>
+      <% end %>
       <h2>Challenges:</h2>
-
+      <% @category.challenges.each do |challenge| %>
+      <div class="category-cards">
+        <img src="<%= challenge.image_url %>" alt="">
+        <div class="category-card-infos">
+          <h3><%= challenge.title %></h3>
+          <p><%= challenge.description[0..150] %></p>
+          <%= link_to "Read more..", challenge_path  %>
+        </div>
+      </div>
+      <% end %>
 
     </div>
   </div>
