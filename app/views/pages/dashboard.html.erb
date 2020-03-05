@@ -1,8 +1,10 @@
 <% if !current_user.streak_count.zero? %>
 
-  <section class="ui-flash warning">
-    <span>Keep up your daily streak! (<%= current_user.streak_count %>)</span>
-    <i class="fas fa-bolt"></i>
+  <section class="ui-flash alert-warning appear">
+    <div class="container">
+      <span>Keep up your daily streak! (<%= current_user.streak_count %>)</span>
+      <i class="fas fa-bolt"></i>
+    </div>
   </section>
 
 <% end %>
