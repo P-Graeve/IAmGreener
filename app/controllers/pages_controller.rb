@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @categories = Category.all
+    @badges = current_user.badges
   end
 end
