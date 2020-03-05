@@ -18,11 +18,23 @@ user6.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
 user6.save
 
 # generate some fake notifications
-4.times do
-  notif = Notification.new(message: Faker::Hacker.say_something_smart)
-  notif.user = user6
-  notif.save
-end
+#4.times do
+notif1 = Notification.new(message: "Matthijs saved water by skipping the shower today!")#Faker::Hacker.say_something_smart)
+notif1.user = user5
+notif1.save
+
+notif2 = Notification.new(message: "Philippa wrapped her lunch in a beeswax wrapping paper.")#Faker::Hacker.say_something_smart)
+notif2.user = user5
+notif2.save
+
+notif3 = Notification.new(message: "Svenia picked up trash.")#Faker::Hacker.say_something_smart)
+notif3.user = user5
+notif3.save
+
+notif4 = Notification.new(message: "Lisa hasn't bought anything with plastic on it in 3 days!")#Faker::Hacker.say_something_smart)
+notif4.user = user5
+notif4.save
+#end
 
 # generate seeds
 water = Category.create(name: 'Water');
