@@ -47,5 +47,10 @@ Challenge.create(category: water, description: 'Almost 1/4 of household water is
 # generate a car
 Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user6, mpg: 26.3)
 
-puts "Success! You have #{Car.count} car, #{Notification.count} notifications"
+# generate daily progress seeds
+(1..7).each do |i|
+  DailyProgress.create(user: user6, tree_amount: rand(0...500), daily_challenge_completed: true, challenge: Challenge.all.sample, date: i.days.ago.strftime('%d-%m-%y'))
+end
+
+puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{DailyProgress.count} daily progresses"
 puts "Login: Frans, Password"
