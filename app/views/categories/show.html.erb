@@ -1,1 +1,14 @@
-<h1><%= @category.name %></h1>
+  <div class="banner" style='background-image: url("<%= asset_path("#{@category.name.downcase}.jpg") %>")'>
+   <h1><%= @category.name %></h1>
+ </div>
+ <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Tips:</h2>
+
+      <h2>Challenges:</h2>
+
+
+    </div>
+  </div>
+</div>
