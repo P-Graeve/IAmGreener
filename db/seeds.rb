@@ -12,28 +12,28 @@ Notification.destroy_all
 Car.destroy_all
 User.destroy_all
 
-user5 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
+user6 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
 img = open('https://images.unsplash.com/photo-1472711795975-42c5b4ee828c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
-user5.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
-user5.save
+user6.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
+user6.save
 
 # generate some fake notifications
 #4.times do
-  notif1 = Notification.new(message: "Matthijs saved water by skipping the shower today!")#Faker::Hacker.say_something_smart)
-  notif1.user = user5
-  notif1.save
+notif1 = Notification.new(message: "Matthijs saved water by skipping the shower today!")#Faker::Hacker.say_something_smart)
+notif1.user = user5
+notif1.save
 
-  notif2 = Notification.new(message: "Philippa wrapped her lunch in a beeswax wrapping paper.")#Faker::Hacker.say_something_smart)
-  notif2.user = user5
-  notif2.save
+notif2 = Notification.new(message: "Philippa wrapped her lunch in a beeswax wrapping paper.")#Faker::Hacker.say_something_smart)
+notif2.user = user5
+notif2.save
 
-  notif3 = Notification.new(message: "Svenia picked up trash.")#Faker::Hacker.say_something_smart)
-  notif3.user = user5
-  notif3.save
+notif3 = Notification.new(message: "Svenia picked up trash.")#Faker::Hacker.say_something_smart)
+notif3.user = user5
+notif3.save
 
-  notif4 = Notification.new(message: "Lisa hasn't bought anything with plastic on it in 3 days!")#Faker::Hacker.say_something_smart)
-  notif4.user = user5
-  notif4.save
+notif4 = Notification.new(message: "Lisa hasn't bought anything with plastic on it in 3 days!")#Faker::Hacker.say_something_smart)
+notif4.user = user5
+notif4.save
 #end
 
 # generate seeds
@@ -88,7 +88,12 @@ Challenge.create(image_url: 'https://images.unsplash.com/photo-1582803824122-f25
 
 
 # generate a car
-Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user5, mpg: 26.3)
+Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user6, mpg: 26.3)
 
-puts "Success! You have #{Car.count} car, #{Notification.count} notifications"
+# generate daily progress seeds
+(1..7).each do |i|
+  DailyProgress.create(user: user6, tree_amount: rand(0...500), daily_challenge_completed: true, challenge: Challenge.all.sample, date: i.days.ago.strftime('%d-%m-%y'))
+end
+
+puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{DailyProgress.count} daily progresses"
 puts "Login: Frans, Password"

@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_140244) do
     t.bigint "challenge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "date"
     t.index ["challenge_id"], name: "index_daily_progresses_on_challenge_id"
     t.index ["user_id"], name: "index_daily_progresses_on_user_id"
   end

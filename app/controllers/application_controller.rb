@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def after_sign_in_path_for(resource)
+    :dashboard
+  end
+
   def configure_permitted_parameters
     added_attrs = [:username, :email, :password, :password_confirmation, :remember_me, :avatar]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
