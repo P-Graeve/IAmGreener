@@ -81,12 +81,12 @@ ActiveRecord::Schema.define(version: 2020_03_05_110901) do
     t.index ["user_id"], name: "index_daily_progresses_on_user_id"
   end
 
-  create_table "notificatons", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_notificatons_on_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profile_badges", force: :cascade do |t|
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_110901) do
   add_foreign_key "challenges", "categories"
   add_foreign_key "daily_progresses", "challenges"
   add_foreign_key "daily_progresses", "users"
-  add_foreign_key "notificatons", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "profile_badges", "badges"
   add_foreign_key "profile_badges", "users"
   add_foreign_key "self_ratings", "users"
