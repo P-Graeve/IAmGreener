@@ -11,6 +11,14 @@
   background-color: $navbar-green;
 }
 
+.nav-btn {
+  padding: 5px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .nav-icons {
   color: $white;
   font-size: 25px;
@@ -51,4 +59,37 @@
 
 .icon-score {
   padding-left: 5px;
+}
+
+@media (max-width: 720px) {
+  .nav-icons {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  #nav-h2 {
+    font-size: 20px;
+  }
+
+  #open-menu-btn {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+  }
+
+  .nav-avatar {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+  }
+
+  .responsive-span {
+    font-size: 10px;
+  }
+
+  .nav-btn {
+    font-size: 15px;
+}
+
 }

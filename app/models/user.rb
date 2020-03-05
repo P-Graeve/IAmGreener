@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
-  has_many :notificatons
+  has_many :notifications
 
   # Include default devise modules. Others available are:
   has_one_attached :avatar# Include default devise modules. Others available are:
