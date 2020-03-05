@@ -10,6 +10,7 @@ require "open-uri"
 puts 'Cleaning DB...'
 Notification.destroy_all
 Car.destroy_all
+ProfileBadge.destroy_all
 User.destroy_all
 
 user5 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
@@ -61,3 +62,21 @@ Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user5, mpg: 26.3)
 
 puts "Success! You have #{Car.count} car, #{Notification.count} notifications"
 puts "Login: Frans, Password"
+
+
+badge1 = Badge.create(name: 'Started saving the world', description: 'registered to I am greener', icon_url: '012-reward-1.svg')
+badge2 = Badge.create(name: 'Trash Panda', description: 'picked up other peoples trash', icon_url: '010-shield-1.svg')
+badge3 = Badge.create(name: 'Zero Waste Queen', description: 'refuses buying packaged food', icon_url: '004-medal.svg')
+
+pbadge1 = ProfileBadge.create(user: user5, badge: badge1, stars: 2)
+pbadge2 = ProfileBadge.create(user: user5, badge: badge2, stars: 1)
+pbadge3 = ProfileBadge.create(user: user5, badge: badge3, stars: 3)
+
+
+
+
+
+
+
+
+
