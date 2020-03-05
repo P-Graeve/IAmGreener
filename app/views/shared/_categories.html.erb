@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h2>Categories:</h2>
+
+      <div class="category-ui-cards">
+        <div class="ui-card-grid">
+
+          <% categories.each do |category| %>
+            <div class="category-ui-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("#{category.name.downcase}.jpg") %>')">
+              <p><%= link_to category.name, category_path(category) %></p>
+            </div>
+          <% end %>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
