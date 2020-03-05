@@ -1,18 +1,5 @@
 <% if !current_user.streak_count.zero? %>
-  <div class="ui-flash-container">
-    <div class="ui-flash-spacing"></div>
-
-    <section class="ui-flash alert-warning add-appear">
-      <div class="container">
-        <div class="ui-flash-details">
-          <span>Keep up your daily streak! (<%= current_user.streak_count %>)</span>
-          <i class="fas fa-bolt"></i>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
+  <%= render 'shared/daily_streak_flash', current_user: current_user %>
 <% end %>
 
 <%= render 'shared/categories', categories: @categories %>
