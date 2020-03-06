@@ -1,8 +1,12 @@
 .badges-ui-card {
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
-  margin: 15px;
-  padding: 10px;
+  width: fit-content;
+  // margin: 15px;
+  // padding: 10px;
 }
 
 .badges-ui-card img {
@@ -13,7 +17,28 @@
 }
 
 .badges-ui-card p {
-  padding: 0;
+  margin: 10px;
   font-weight: bold;
   margin: 10px;
+  width: 100px;
+}
+
+.badge-flex-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.badge-ui-card {
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  margin: 5px;
+
+}
+
+@media (max-width: 700px) {
+  .badges-ui-card img {
+    height: 50px;
+  }
 }
