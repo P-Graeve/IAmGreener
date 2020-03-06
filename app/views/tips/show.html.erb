@@ -3,7 +3,9 @@
     <div class="col-12 col-md-6 offset-md-3">
       <h1><%= @tip.title %></h1>
       <%= image_tag(@tip.image_url, class: 'tip_image')  %>
-      <p><%= @tip.description %></p>
+      <% @tip.description.split('\n').each do |sentence| %>
+        <p><%= sentence %></p>
+      <% end %>
       <%= link_to "Go back to category #{@tip.category.name.downcase}", category_path(@tip.category), class: "tip-btn" %>
       <div class='spacer'></div>
     </div>
