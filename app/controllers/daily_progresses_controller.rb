@@ -3,6 +3,12 @@ class DailyProgressesController < ApplicationController
 
   end
 
+  def completed
+  end
+
+  def failed
+  end
+
   private
 
 

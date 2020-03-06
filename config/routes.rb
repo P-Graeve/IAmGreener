@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :challenges, only: [:show]
   resources :tips, only: [:show]
   resources :daily_progresses, only: [:create]
+  get 'daily_progresses/completed'
+  get 'daily_progresses/failed'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :users do
     resources :cars, only: [:new, :create]
