@@ -29,14 +29,23 @@ class User < ApplicationRecord
   end
 
   def streak_count
-    5
+    streak = 0
+
+    daily_progresses.each do |dp|
+      if dp.daily_challenge_completed?
+        streak += 1
+      else
+        break
+      end
+    end
+    streak
   end
 
   def trees_this_week
     # get the trees from this past week in an array
     pgs = daily_progresses.last(7)
     pgs.map do |progress|
-      progress.tree_amount
+      progress.tree_amount || 0
     end
   end
 
@@ -49,7 +58,7 @@ class User < ApplicationRecord
       pg
     else
       # return a new instance of dailyprogress
-      DailyProgress.new(user: self, challenge: Challenge.find_by(title: 'Understand Expiration Dates'))
+      DailyProgress.create(user: self, challenge: Challenge.find_by(title: 'Understand Expiration Dates'), date: 0.days.ago.strftime('%d-%m-%y'))
     end
   end
 
