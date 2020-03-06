@@ -41,3 +41,11 @@ $flash-height: 50px;
 .appear {
   top: 0;
 }
+
+.d-grid {
+  grid-template-columns: 1fr;
+  display: grid;
+  @media (min-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
