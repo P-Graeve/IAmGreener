@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   resources :categories, only: [:show]
-  resources :challenges, only: [:show]
+  resources :challenges, only: [:show] do
+    resources :daily_progresses, only: [:update]
+  end
   resources :tips, only: [:show]
-  resources :daily_progresses, only: [:create]
   get 'daily_progresses/completed'
   get 'daily_progresses/failed'
 
