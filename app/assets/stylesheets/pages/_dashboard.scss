@@ -3,6 +3,7 @@
 }
 
 $flash-height: 50px;
+$streak-height: 80px;
 
 .ui-flash-container {
   position: relative;
@@ -12,11 +13,27 @@ $flash-height: 50px;
   height: $flash-height;
 }
 
+.daily-challenge {
+  .ui-flash-spacing {
+    height: $streak-height;
+  }
+  .ui-flash {
+    z-index: -2;
+    height: $streak-height;
+    top: calc(-#{$streak-height}-#{$flash-height});
+    background-color: $maybe-red;
+  }
+  .ui-flash-details {
+    height: $streak-height;
+
+  }
+}
+
 .ui-flash {
   z-index: -1;
   height: $flash-height;
   position: absolute;
-  top: -50px;
+  top: -$flash-height;
   width: 100%;
   overflow: hidden;
   font-weight: bold;
@@ -32,7 +49,7 @@ $flash-height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 0 20px;
   @media (min-width: 445px) {
     font-size: 1em;
   }
