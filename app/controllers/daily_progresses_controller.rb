@@ -4,6 +4,7 @@ class DailyProgressesController < ApplicationController
   end
 
   def completed
+    @daily = current_user.todays_challenge
   end
 
   def failed
