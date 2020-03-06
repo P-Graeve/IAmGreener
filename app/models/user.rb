@@ -49,7 +49,11 @@ class User < ApplicationRecord
       pg
     else
       # return a new instance of dailyprogress
-      DailyProgress.new(user: self)
+      DailyProgress.new(user: self, challenge: Challenge.find_by(title: 'Understand Expiration Dates'))
     end
+  end
+
+  def todays_challenge
+    todays_progress.challenge
   end
 end

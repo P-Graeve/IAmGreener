@@ -19,7 +19,11 @@ $streak-height: 80px;
   }
   .ui-flash {
     height: $streak-height;
-    background-color: red;
+    background-color: $maybe-red;
+  }
+  .ui-flash-details {
+    height: $streak-height;
+
   }
 }
 
@@ -43,7 +47,7 @@ $streak-height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 0 20px;
   @media (min-width: 445px) {
     font-size: 1em;
   }
