@@ -5,41 +5,32 @@
         <h1><%= @challenge.title %></h1>
       </div>
       <%= image_tag(@challenge.image_url, class: 'challenge_image')  %>
-      <p><%= @challenge.description %></p>
-      <div class="daily-challange">
-        <h3>Challange status:</h3>
+      <% @challenge.description.split('\n').each do |sentence| %>
+        <p><%= sentence %></p>
+      <% end %>
 
-        <%= simple_form_for(DailyProgress.new(user: current_user)) do |f| %>
-            <%= f.input :daily_challenge_completed, as: :radio_buttons, collection: DailyProgress::STATES %>
-            <%= f.submit %>
+      <% if !@daily_progress.daily_challenge_completed? %>
+        <h3>Challenge status:</h3>
+
+        <%= simple_form_for([@challenge, @daily_progress]) do |f| %>
+          <%= f.input :daily_challenge_completed, as: :radio_buttons, collection: DailyProgress::STATES %>
+
+          <div class="submit-btn ">
+            <%= f.submit "Submit" %>
+          </div>
         <% end %>
+      <% else %>
+        <p class="alert-warning p-3">
+          You've already completed this challenge!
+        </p>
+      <% end %>
+      <div class="daily-challenge">
 
+        <div class='spacer'></div>
 
-        <div class="form-group">
-          <%= check_box_tag :complete %>
-          <%= label_tag(:contact_owner, "Complete") %>
-        </div>
+        <%= link_to "Go back to category #{@challenge.category.name.downcase}", category_path(@challenge.category), class: 'challenge-btn' %>
 
-        <div class="form-group">
-          <%= check_box_tag :not_able %>
-          <%= label_tag(:not_able, "Couldn't complete the challenge") %>
-        </div>
-
-        <div class="form-group">
-          <%= check_box_tag :not_complete %>
-          <%= label_tag(:not_complete, "Didn't complete the challange") %>
-        </div>
-
-        <div class="submit-btn">
-          <%= submit_tag("Submit") %>
-        </div>
+        <div class='spacer'></div>
       </div>
-
-      <div class='spacer'></div>
-
-      <%= link_to "Go back to category #{@challenge.category.name.downcase}", category_path(@challenge.category), class: 'challenge-btn' %>
-
-      <div class='spacer'></div>
     </div>
   </div>
-</div>
