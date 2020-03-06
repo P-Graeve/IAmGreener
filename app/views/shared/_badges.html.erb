@@ -1,4 +1,5 @@
-<div class="badges-ui-card">
+<% if !@badges.size.zero? %>
+  <div class="badges-ui-card">
     <div class="d-flex badge-flex-container">
       <% @badges.each do |badge| %>
       <div class="badge-ui-card text-center">
@@ -7,4 +8,5 @@
         </div>
       <% end %>
     </div>
-</div>
+  </div>
+<% end %>
