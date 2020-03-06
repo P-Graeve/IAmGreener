@@ -18,7 +18,9 @@ $streak-height: 80px;
     height: $streak-height;
   }
   .ui-flash {
+    z-index: -2;
     height: $streak-height;
+    top: calc(-#{$streak-height}-#{$flash-height});
     background-color: $maybe-red;
   }
   .ui-flash-details {
@@ -31,7 +33,7 @@ $streak-height: 80px;
   z-index: -1;
   height: $flash-height;
   position: absolute;
-  top: -50px;
+  top: -$flash-height;
   width: 100%;
   overflow: hidden;
   font-weight: bold;
