@@ -3,6 +3,7 @@
 }
 
 $flash-height: 50px;
+$streak-height: 80px;
 
 .ui-flash-container {
   position: relative;
@@ -10,6 +11,16 @@ $flash-height: 50px;
 
 .ui-flash-spacing {
   height: $flash-height;
+}
+
+.daily-challenge {
+  .ui-flash-spacing {
+    height: $streak-height;
+  }
+  .ui-flash {
+    height: $streak-height;
+    background-color: red;
+  }
 }
 
 .ui-flash {
