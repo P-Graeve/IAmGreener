@@ -1,8 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
-      <div class="ui-card">
-        <h1>Congratulations!</h1>
+      <div class="daily-progresses-ui-card text-center">
+        <h1>Congrats!</h1>
+        <%= image_tag( asset_path('undraw_japan_ubgk.svg')) %>
+        <p>You completed your daily challenge. This will add +35 Trees to your Tree score.</p>
+        <%= link_to "Next", dashboard_path, class: "ui-btn" %>
       </div>
     </div>
   </div>
