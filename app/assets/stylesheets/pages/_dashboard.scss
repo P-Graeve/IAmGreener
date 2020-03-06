@@ -1,16 +1,43 @@
-.container h2{
+.container h2 {
   margin-bottom: 15px;
 }
 
-.badges-ui-card img {
-  height: 100px;
-  margin: 5px;
-  padding: 0;
-  overflow: hidden;
+$flash-height: 50px;
+
+.ui-flash-container {
+  position: relative;
 }
 
-.badges-ui-card p {
-  padding: 0;
+.ui-flash-spacing {
+  height: $flash-height;
+}
+
+.ui-flash {
+  z-index: -1;
+  height: $flash-height;
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  overflow: hidden;
   font-weight: bold;
-  margin: 10px;
+  text-transform: uppercase;
+  color: $gray;
+  background-color: $maybe;
+  transition: top 1000ms ease-out;
+}
+
+.ui-flash-details {
+  font-size: 0.8em;
+  height: $flash-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  @media (min-width: 445px) {
+    font-size: 1em;
+  }
+}
+
+.appear {
+  top: 0;
 }

@@ -1,5 +1,20 @@
-<div class="container">
-      <%= render 'shared/categories', categories: @categories %>
+<% if !current_user.streak_count.zero? %>
+  <%= render 'shared/daily_streak_flash' %>
+<% end %>
+
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-12 col-md-5 p-3 ui-card">
+      <%= render 'shared/progress_graph' %>
+    </div>
+
+    <div class="col-12 col-md-6">
       <%= render 'shared/badges', badges: @badges %>
+    </div>
+  </div>
 </div>
 
+
+<div class="container">
+      <%= render 'shared/categories', categories: @categories %>
+</div>
