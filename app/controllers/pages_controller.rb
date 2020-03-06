@@ -8,4 +8,5 @@ class PagesController < ApplicationController
     @categories = Category.all
     @badges = current_user.badges
   end
+
 end

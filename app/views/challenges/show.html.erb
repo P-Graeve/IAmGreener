@@ -9,37 +9,19 @@
       <div class="daily-challange">
         <h3>Challange status:</h3>
 
-        <%= simple_form_for(DailyProgress.new(user: current_user)) do |f| %>
-            <%= f.input :daily_challenge_completed, as: :radio_buttons, collection: DailyProgress::STATES %>
-            <%= f.submit %>
+        <%= simple_form_for([@challenge, @daily_progress]) do |f| %>
+        <%= f.input :daily_challenge_completed, as: :radio_buttons, collection: DailyProgress::STATES %>
+
+        <div class="submit-btn ">
+          <%= f.submit "Submit" %>
+        </div>
         <% end %>
 
+        <div class='spacer'></div>
 
-        <div class="form-group">
-          <%= check_box_tag :complete %>
-          <%= label_tag(:contact_owner, "Complete") %>
-        </div>
+        <%= link_to "Go back to category #{@challenge.category.name.downcase}", category_path(@challenge.category), class: 'challenge-btn' %>
 
-        <div class="form-group">
-          <%= check_box_tag :not_able %>
-          <%= label_tag(:not_able, "Couldn't complete the challenge") %>
-        </div>
-
-        <div class="form-group">
-          <%= check_box_tag :not_complete %>
-          <%= label_tag(:not_complete, "Didn't complete the challange") %>
-        </div>
-
-        <div class="submit-btn">
-          <%= submit_tag("Submit") %>
-        </div>
+        <div class='spacer'></div>
       </div>
-
-      <div class='spacer'></div>
-
-      <%= link_to "Go back to category #{@challenge.category.name.downcase}", category_path(@challenge.category), class: 'challenge-btn' %>
-
-      <div class='spacer'></div>
     </div>
   </div>
-</div>
