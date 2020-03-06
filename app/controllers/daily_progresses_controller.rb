@@ -18,6 +18,12 @@ class DailyProgressesController < ApplicationController
 
   end
 
+  def completed
+  end
+
+  def failed
+  end
+
   private
   def params_choice
     params.require(:daily_progress).permit(:daily_challenge_completed)

@@ -37,3 +37,11 @@ ul {
 .blur {
   filter: blur(3px);
 }
+
+.no-fuckin-link {
+  color: $gray;
+  &:hover {
+    color: $gray;
+    text-decoration: none;
+  }
+}
