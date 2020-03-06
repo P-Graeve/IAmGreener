@@ -39,4 +39,17 @@ class User < ApplicationRecord
       progress.tree_amount
     end
   end
+
+  def todays_progress
+    # return the last instance of daily_progresses for today
+    # check if it is already made
+    pg = DailyProgress.find_by(date: 0.days.ago.strftime('%d-%m-%y'))
+    if pg
+      # return this object
+      pg
+    else
+      # return a new instance of dailyprogress
+      DailyProgress.new(user: self)
+    end
+  end
 end
