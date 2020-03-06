@@ -1,5 +1,11 @@
+<%# Prompts for in the top %>
+
 <% if !current_user.streak_count.zero? %>
   <%= render 'shared/daily_streak_flash' %>
+<% end %>
+
+<% if !current_user.todays_progress.daily_challenge_completed? %>
+  <%= render 'shared/daily_challenge_flash' %>
 <% end %>
 
 <div class="container pt-5">
