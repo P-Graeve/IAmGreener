@@ -29,7 +29,7 @@ class Users::CarsController < ApplicationController
         # save the car
         @car.save
         # fetch the info we need from the api
-        if @car.update(lkm: @car.fetch_mpg)
+        if @car.update(mpg: @car.fetch_mpg)
         else
           raise
         end
