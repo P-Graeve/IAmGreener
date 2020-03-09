@@ -1,12 +1,12 @@
 <% if !@badges.size.zero? %>
-  <div class="badges-ui-card">
-    <div class="d-flex badge-flex-container">
-      <% @badges.each do |badge| %>
-      <div class="badge-ui-card text-center">
-        <p><%= badge.name %></p>
-        <%= image_tag(asset_path("badges-icons/svg/#{badge.icon_url}")) %>
-        </div>
-      <% end %>
+<div class="badges-ui-card">
+  <div class="d-flex badge-flex-container">
+    <% @badges.each do |badge| %>
+    <div class="badge-ui-card text-center">
+      <p><%= badge.name %></p>
+      <%= image_tag(asset_path("badges-icons/svg/#{badge.icon_url}")) %>
     </div>
+    <% end %>
   </div>
+</div>
 <% end %>
