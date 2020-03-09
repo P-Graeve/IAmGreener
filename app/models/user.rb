@@ -15,6 +15,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # login
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -29,15 +30,39 @@ class User < ApplicationRecord
   end
 
   def streak_count
-    puts "streak count"
     5
   end
 
-  def trees_this_week
-    # get the trees from this past week in an array
-    puts "trees this week"
+  # actions
+  def actions_from_day(date)
+    actions = Action.where(user: self)
+    actions.select do |action|
+      action.created_at.strftime('%d-%m-%y') == date.strftime('%d-%m-%y')
+    end
   end
 
+  # trees
+  def trees_on_day(date)
+    # get the sum of the total amount of trees on a certain day
+    actions_from_day(date).select do |action|
+      action.earn_tree?
+    end.map do |action|
+      action.count
+    end.sum
+  end
+
+  def trees_by_day_this_week
+    # get the trees from this past week in an array
+    # get week day nr (sunday: 1, saturday: 7)
+    week_day = Time.now().wday + 1;
+    trees_arr = [0, 0, 0, 0, 0, 0, 0]
+    (1..week_day).each do |i|
+      trees_arr[i - 1] = trees_on_day((i - 1).days.ago)
+    end
+    trees_arr
+  end
+
+  # progress
   def progress_from(date)
     puts "Progress from #{date}"
     {
@@ -50,10 +75,9 @@ class User < ApplicationRecord
     progress_from(0.days.ago)
   end
 
+  # challenges
   def todays_challenge
-    hash = todays_progress
-    puts "todays challenge"
-    hash[:daily_challenge]
+    todays_progress[:daily_challenge]
   end
 
   def challenge_completed?
