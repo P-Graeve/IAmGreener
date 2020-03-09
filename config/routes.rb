@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'challenges/show'
   get 'tips/show'
   get 'dashboard', to: 'pages#dashboard'
+  get 'contact', to: 'pages#contact'
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   resources :categories, only: [:show]
