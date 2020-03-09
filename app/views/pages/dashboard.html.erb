@@ -4,7 +4,7 @@
   <%= render 'shared/daily_streak_flash' %>
 <% end %>
 
-<% if !current_user.todays_progress.daily_challenge_completed? %>
+<% if !current_user.todays_progress[:daily_challenge_completed?] %>
   <%= render 'shared/daily_challenge_flash' %>
 <% end %>
 

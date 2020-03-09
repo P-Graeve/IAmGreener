@@ -30,6 +30,7 @@ class User < ApplicationRecord
 
   def streak_count
     puts "streak count"
+    5
   end
 
   def trees_this_week
@@ -39,6 +40,10 @@ class User < ApplicationRecord
 
   def progress_from(date)
     puts "Progress from #{date}"
+    {
+      daily_challenge_completed?: false,
+      daily_challenge: Challenge.all.sample
+    }
   end
 
   def todays_progress
@@ -46,6 +51,8 @@ class User < ApplicationRecord
   end
 
   def todays_challenge
+    hash = todays_progress
     puts "todays challenge"
+    hash[:daily_challenge]
   end
 end
