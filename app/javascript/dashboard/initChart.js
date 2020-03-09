@@ -7,7 +7,7 @@ export const initChart = () => {
   const myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
           datasets: [{
               label: 'Trees planted',
               data,

@@ -11,7 +11,17 @@ class Action < ApplicationRecord
 
   after_create :check_for_badge
 
+  before_save do
+    self.created_at || DateTime.now
+  end
+
   def check_for_badge
     puts "Check for badge"
+  end
+
+  protected
+
+  def timestamp_attributes_for_create
+    [:updated_at]
   end
 end

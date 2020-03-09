@@ -63,10 +63,10 @@ class User < ApplicationRecord
   def trees_by_day_this_week
     # get the trees from this past week in an array
     # get week day nr (sunday: 1, saturday: 7)
-    week_day = Time.now().wday + 1;
+    week_day = Time.now().wday;
     trees_arr = [0, 0, 0, 0, 0, 0, 0]
-    (1..week_day).each do |i|
-      trees_arr[i - 1] = trees_on_day((i - 1).days.ago)
+    (0..week_day).each do |i|
+      trees_arr[i] = trees_on_day((week_day - i).days.ago)
     end
     trees_arr
   end
