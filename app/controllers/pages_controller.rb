@@ -9,4 +9,8 @@ class PagesController < ApplicationController
     @badges = current_user.badges
   end
 
+  def contact
+
+  end
+
 end
