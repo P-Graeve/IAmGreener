@@ -42,6 +42,15 @@ class User < ApplicationRecord
   end
 
   # trees
+  def trees
+    # get all trees from user
+    actions.select do |action|
+      action.earn_tree?
+    end.map do |action|
+      action.count
+    end.sum
+  end
+
   def trees_on_day(date)
     # get the sum of the total amount of trees on a certain day
     actions_from_day(date).select do |action|
