@@ -63,34 +63,49 @@
 }
 
 @media (max-width: 720px) {
-  .nav-icons {
-    font-size: 15px;
+  .nav-icons > a {
+    padding: 0;
+  }
+
+    .nav-icons {
     padding: 5px;
   }
 
   #nav-h2 {
-    font-size: 20px;
+    font-size: 25px;
+    padding: 0;
+    margin: 0;
   }
 
   #open-menu-btn {
-    font-size: 15px;
+    font-size: 16px;
     margin: 0;
     padding: 0;
     padding-left: 10px;
   }
 
   .nav-avatar {
-    height: 35px;
-    width: 35px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
   }
 
   .responsive-span {
-    font-size: 10px;
+    font-size: 16px;
   }
 
   .nav-btn {
-    font-size: 15px;
+    font-size: 16px;
+}
+
+  .icon-score {
+    padding: 0;
+    margin: 10px;
+}
+
+.responsive-span {
+  padding: 0;
+  margin: 0;
 }
 
 }

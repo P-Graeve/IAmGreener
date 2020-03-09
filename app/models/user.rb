@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   has_many :notifications
-  has_many :daily_progresses
+  has_many :actions
   has_many :profile_badges
   has_many :badges, through: :profile_badges
 
@@ -15,6 +15,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # login
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -29,40 +30,66 @@ class User < ApplicationRecord
   end
 
   def streak_count
-    streak = 0
-
-    daily_progresses.each do |dp|
-      if dp.daily_challenge_completed?
-        streak += 1
-      else
-        break
-      end
-    end
-    streak
+    5
   end
 
-  def trees_this_week
-    # get the trees from this past week in an array
-    pgs = daily_progresses.last(7)
-    pgs.map do |progress|
-      progress.tree_amount || 0
+  # actions
+  def actions_from_day(date)
+    actions = Action.where(user: self)
+    actions.select do |action|
+      action.created_at.strftime('%d-%m-%y') == date.strftime('%d-%m-%y')
     end
+  end
+
+  # trees
+  def trees
+    # get all trees from user
+    actions.select do |action|
+      action.earn_tree?
+    end.map do |action|
+      action.count
+    end.sum
+  end
+
+  def trees_on_day(date)
+    # get the sum of the total amount of trees on a certain day
+    actions_from_day(date).select do |action|
+      action.earn_tree?
+    end.map do |action|
+      action.count
+    end.sum
+  end
+
+  def trees_by_day_this_week
+    # get the trees from this past week in an array
+    # get week day nr (sunday: 1, saturday: 7)
+    week_day = Time.now().wday;
+    trees_arr = [0, 0, 0, 0, 0, 0, 0]
+    (0..week_day).each do |i|
+      trees_arr[i] = trees_on_day((week_day - i).days.ago)
+    end
+    trees_arr
+  end
+
+  # progress
+  def progress_from(date)
+    puts "Progress from #{date}"
+    {
+      daily_challenge_completed?: false,
+      daily_challenge: Challenge.all.sample
+    }
   end
 
   def todays_progress
-    # return the last instance of daily_progresses for today
-    # check if it is already made
-    pg = DailyProgress.find_by(date: 0.days.ago.strftime('%d-%m-%y'))
-    if pg
-      # return this object
-      pg
-    else
-      # return a new instance of dailyprogress
-      DailyProgress.create(user: self, challenge: Challenge.find_by(title: 'Understand Expiration Dates'), date: 0.days.ago.strftime('%d-%m-%y'))
-    end
+    progress_from(0.days.ago)
   end
 
+  # challenges
   def todays_challenge
-    todays_progress.challenge
+    todays_progress[:daily_challenge]
+  end
+
+  def challenge_completed?
+    false
   end
 end

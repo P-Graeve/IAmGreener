@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_140244) do
+ActiveRecord::Schema.define(version: 2020_03_09_111905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.integer "name"
+    t.integer "count"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "car_id"
+    t.bigint "self_rating_id"
+    t.index ["car_id"], name: "index_actions_on_car_id"
+    t.index ["challenge_id"], name: "index_actions_on_challenge_id"
+    t.index ["self_rating_id"], name: "index_actions_on_self_rating_id"
+    t.index ["user_id"], name: "index_actions_on_user_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -72,18 +87,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_140244) do
     t.index ["category_id"], name: "index_challenges_on_category_id"
   end
 
-  create_table "daily_progresses", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "tree_amount"
-    t.boolean "daily_challenge_completed"
-    t.bigint "challenge_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "date"
-    t.index ["challenge_id"], name: "index_daily_progresses_on_challenge_id"
-    t.index ["user_id"], name: "index_daily_progresses_on_user_id"
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
@@ -132,17 +135,18 @@ ActiveRecord::Schema.define(version: 2020_03_05_140244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
-    t.integer "tree_score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "actions", "cars"
+  add_foreign_key "actions", "challenges"
+  add_foreign_key "actions", "self_ratings"
+  add_foreign_key "actions", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
   add_foreign_key "challenges", "categories"
-  add_foreign_key "daily_progresses", "challenges"
-  add_foreign_key "daily_progresses", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "profile_badges", "badges"
   add_foreign_key "profile_badges", "users"

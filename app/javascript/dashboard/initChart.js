@@ -7,7 +7,7 @@ export const initChart = () => {
   const myChart = new Chart(ctx, {
       type: 'line',
       data: {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
           datasets: [{
               label: 'Trees planted',
               data,
@@ -15,6 +15,15 @@ export const initChart = () => {
               backgroundColor: 'rgba(255,255,255,0.0)',
               borderWidth: 2
           }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMin: 0
+            }
+          }]
+        }
       }
   });
 }
