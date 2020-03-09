@@ -15,6 +15,15 @@ export const initChart = () => {
               backgroundColor: 'rgba(255,255,255,0.0)',
               borderWidth: 2
           }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMin: 0
+            }
+          }]
+        }
       }
   });
 }
