@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'search_users', to: 'pages#search_users'
   devise_for :users, controllers: { registrations: "registrations" }
+  post 'users/:user_id/friendships', to: 'friendships#create', as: :friendships
   root to: 'pages#home'
   resources :categories, only: [:show]
   resources :challenges, only: [:show] do
