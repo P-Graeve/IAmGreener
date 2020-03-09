@@ -22,7 +22,7 @@
     </div>
     <div class="d-flex align-items-center">
       <%= link_to dashboard_path do %>
-      <%= cl_image_tag current_user.avatar.key, class: "avatar-large nav-avatar" %>
+      <%= cl_image_tag current_user.avatar.attached? ? current_user.avatar.key : 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', height: 300, width: 400, crop: :fill, class: "avatar-large nav-avatar" %>
       <% end %>
       <button class="ui-icon-btn" id="open-menu-btn">
         <i class="fas fa-chevron-down"></i>
