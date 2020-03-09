@@ -3,10 +3,6 @@ require 'open-uri'
 class Car < ApplicationRecord
   belongs_to :user
 
-  after_create :add_create_car_action
-
-  before_destroy :add_remove_car_action
-
   BRANDS = [
     "Acura",
     "Alfa Romeo",
@@ -61,17 +57,6 @@ class Car < ApplicationRecord
 ]
 
   validates :brand, :year, :model, presence: true
-
-  def add_remove_car_action
-    ac = Action.new(user: current_user, count: 1, car: self)
-    ac.remove_car!
-  end
-
-  def add_create_car_action
-    # create car action
-    ac = Action.new(user: current_user, count: 1, car: self)
-    ac.add_car!
-  end
 
   def fetch_models
     json = open("https://www.carqueryapi.com/api/0.3/?cmd=getModels&make=#{brand}&year=#{year}").read

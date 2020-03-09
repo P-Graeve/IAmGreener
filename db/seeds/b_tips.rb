@@ -1,3 +1,10 @@
+water = Category.find_by(name: 'water')
+waste = Category.find_by(name: 'waste')
+energy = Category.find_by(name: 'energy')
+home = Category.find_by(name: 'home')
+transportation = Category.find_by(name: 'transportation')
+food = Category.find_by(name: 'food')
+
 # generate tips
 Tip.create(image_url: 'https://images.unsplash.com/photo-1564518823771-494a12735793?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: water, description: 'Running taps contribute to water waste, running the tap to rinse fresh produce can use up to 10L of water per minute!. Avoid unnecessary waste by putting a plug in the sink or using a bowl when cleaning fruit and veg. The water you collect can be used on your garden.', title: 'Plug the sink or use a bowl when you are washing vegies.');
 Tip.create(image_url: 'https://images.unsplash.com/photo-1571781418606-70265b9cce90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: water, description: 'Showers make up 22% of total household water use. By swapping to water efficient shower heads, households can save up to 20, 000L of water per year. When selecting a shower head look for the stars on the WELS label the more stars, the more water you will save. Also look at the flow rate (litres per minute) as this can vary substantially.', title: 'Swap to a water efficient showerhead.');

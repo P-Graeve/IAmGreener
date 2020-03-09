@@ -9,7 +9,7 @@ sign_up_action.sign_up!
 
 # create car
 # generate a car
-Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user6, mpg: 26.3)
-
-# create an action
-
+audi = Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user6, mpg: 26.3)
+# create car add action
+car_ac = Action.new(user: user6, car: audi, count: 1)
+car_ac.add_car!

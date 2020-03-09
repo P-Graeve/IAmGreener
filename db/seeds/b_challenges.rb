@@ -1,3 +1,10 @@
+water = Category.find_by(name: 'water')
+waste = Category.find_by(name: 'waste')
+energy = Category.find_by(name: 'energy')
+home = Category.find_by(name: 'home')
+transportation = Category.find_by(name: 'transportation')
+food = Category.find_by(name: 'food')
+
 Challenge.create(image_url: 'https://images.unsplash.com/photo-1521207418485-99c705420785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: water, description: 'Leaving the tap running when brushing your teeth wastes up to 10L per minute. Our surveys show 8 out of 10 people have changed their habit and are now turning the tap off. Are you helping to make a difference?', title: 'Brush your teeth with the tap off!');
 Challenge.create(image_url: 'https://images.unsplash.com/photo-1556228149-d8f523f77b5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: water, description: 'Around 9% of total household water use goes down the toilet! When you can, choose the half flush when you use the loo. WELS 4 star toilets use 3L for half flush and 4.5 for full flush.', title: 'Reduce water waste, choose the half flush!');
 Challenge.create(image_url: 'https://images.unsplash.com/photo-1561361398-d1f7b6cfee79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: water, description: 'Almost 1/4 of household water is used in the shower. Cutting your shower time by just 2 minutes can result in a water saving of up to 30%. Try using a shower timer or your favourite 4 minute song to time your showers.', title: 'Save water and energy by reducing shower times to 4 minutes.');
