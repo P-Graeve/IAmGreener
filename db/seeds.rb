@@ -8,7 +8,7 @@
 require "open-uri"
 
 puts 'Cleaning DB...'
-DailyProgress.destroy_all
+Action.destroy_all
 Tip.destroy_all
 ProfileBadge.destroy_all
 Badge.destroy_all
@@ -18,10 +18,14 @@ Car.destroy_all
 User.destroy_all
 Category.destroy_all
 
-user6 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password', tree_score: 453)
+user6 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password')
 img = open('https://images.unsplash.com/photo-1472711795975-42c5b4ee828c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
 user6.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
 user6.save
+
+# create sign up action
+sign_up_action = Action.new(user: user6, count: 1, created_at: 1.month.ago)
+sign_up_action.sign_up!
 
 # generate some fake notifications
 #4.times do
@@ -90,18 +94,19 @@ Challenge.create(image_url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a
 Challenge.create(image_url: 'https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60', category: food, description: ' Overeating is a problem for many people.\nMaking sure your portion sizes stay within a healthy range doesn’t just help keep your weight down, it also reduces food waste.\nWhile you may not think twice about scraping the leftover food on your plate into the trash, remember that food waste has a major impact on the environment.\nBeing more mindful of how hungry you actually are and practicing portion control are great ways to reduce food waste.', title: 'Keep Your Serving Sizes in Check');
 Challenge.create(image_url: 'https://images.unsplash.com/photo-1582803824122-f25becf36ad8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', category: food, description: ' “Sell by” and “expires on” are just two of the many confusing terms companies use on food labels to let consumers know when a product will most likely go bad.\nThe truth is, most food that has just passed its expiration date is still safe to eat.\n“Sell by” is used to inform retailers when the product should be sold or removed from the shelves. “Best by” is a suggested date that consumers should use their products by.\nNeither of these terms means that the product is unsafe to eat after the given date.\nWhile many of these labels are ambiguous, “use by” is the best one to follow. This term means that the food may not be at its best quality past the listed date. A movement is now underway to make the food expiration labeling system more clear for consumers. In the meantime, use your best judgment when deciding whether food that is slightly past its expiration date is safe to eat.', title: 'Understand Expiration Dates');
 
-
-
-
 # generate a car
 Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user6, mpg: 26.3)
 
-# generate daily progress seeds
-(1..7).each do |i|
-  DailyProgress.create(user: user6, tree_amount: rand(0...500), daily_challenge_completed: true, challenge: Challenge.all.sample, date: i.days.ago.strftime('%d-%m-%y'))
+# create car action
+car_action = Action.new(user: user6, )
+
+# generate actions for earning trees
+(1..8).each do |i|
+  action = Action.new(user: user6, count: rand(0...200), created_at: i.days.ago)
+  action.earn_tree!
 end
 
-puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{DailyProgress.count} daily progresses"
+puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{Action.count} actions"
 puts "Login: Frans, Password"
 
 
