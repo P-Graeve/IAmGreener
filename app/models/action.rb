@@ -15,13 +15,14 @@ class Action < ApplicationRecord
     self.created_at || DateTime.now
   end
 
+  protected
+
   def check_for_badge
     puts "Check for badge"
   end
 
-  protected
-
   def timestamp_attributes_for_create
     [:updated_at]
   end
+
 end
