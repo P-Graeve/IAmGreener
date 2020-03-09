@@ -3,7 +3,7 @@
 
     <section class="ui-flash alert-warning add-appear" data-delay="1000">
       <div class="ui-flash-details">
-        <%= link_to "Today's challenge: #{current_user.todays_challenge[:title]}", challenge_path(current_user.todays_challenge), class: 'no-fuckin-link' %>
+        <%= link_to "Today's challenge: #{current_user.todays_challenge.title}", challenge_path(current_user.todays_challenge), class: 'no-fuckin-link' %>
         <i class="fas fa-trophy"></i>
       </div>
     </section>

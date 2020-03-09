@@ -55,4 +55,8 @@ class User < ApplicationRecord
     puts "todays challenge"
     hash[:daily_challenge]
   end
+
+  def challenge_completed?
+    false
+  end
 end
