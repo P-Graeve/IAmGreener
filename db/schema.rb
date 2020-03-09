@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_090316) do
+ActiveRecord::Schema.define(version: 2020_03_09_090712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,11 @@ ActiveRecord::Schema.define(version: 2020_03_09_090316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "car_id"
+    t.bigint "self_rating_id"
+    t.index ["car_id"], name: "index_actions_on_car_id"
     t.index ["challenge_id"], name: "index_actions_on_challenge_id"
+    t.index ["self_rating_id"], name: "index_actions_on_self_rating_id"
     t.index ["user_id"], name: "index_actions_on_user_id"
   end
 
@@ -149,7 +153,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_090316) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "actions", "cars"
   add_foreign_key "actions", "challenges"
+  add_foreign_key "actions", "self_ratings"
   add_foreign_key "actions", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
