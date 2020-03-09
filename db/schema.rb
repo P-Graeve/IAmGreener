@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_090712) do
+ActiveRecord::Schema.define(version: 2020_03_09_094420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,18 +87,6 @@ ActiveRecord::Schema.define(version: 2020_03_09_090712) do
     t.index ["category_id"], name: "index_challenges_on_category_id"
   end
 
-  create_table "daily_progresses", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "tree_amount"
-    t.boolean "daily_challenge_completed"
-    t.bigint "challenge_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "date"
-    t.index ["challenge_id"], name: "index_daily_progresses_on_challenge_id"
-    t.index ["user_id"], name: "index_daily_progresses_on_user_id"
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
@@ -160,8 +148,6 @@ ActiveRecord::Schema.define(version: 2020_03_09_090712) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
   add_foreign_key "challenges", "categories"
-  add_foreign_key "daily_progresses", "challenges"
-  add_foreign_key "daily_progresses", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "profile_badges", "badges"
   add_foreign_key "profile_badges", "users"
