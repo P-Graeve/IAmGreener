@@ -13,6 +13,7 @@
   align-items: center;
   border-radius: 5px;
   flex-grow: 1;
+  margin-bottom: 10px;
 }
 .user-infos{
   justify-content: center;
@@ -35,5 +36,14 @@
   color: rgba(0,0,0,0.2);
   &:hover{
     color: black;
+  }
+}
+.add-user-btn{
+  a{color: rgba(0,0,0,0.2);
+    text-decoration: none;
+    &:hover{
+      color: black;
+    }
+
   }
 }
