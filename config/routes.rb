@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'tips/show'
   get 'dashboard', to: 'pages#dashboard'
   get 'contact', to: 'pages#contact'
+  get 'search_users', to: 'pages#search_users'
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   resources :categories, only: [:show]
