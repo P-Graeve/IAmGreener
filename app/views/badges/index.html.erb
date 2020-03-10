@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2">
+      <div class="ui-card">
+        <div>
+          <h4>Bad badges</h4>
+          <div class="badges-container">
+            <%= render 'shared/badges', badges: @bad_badges %>
+          </div>
+        </div>
+        <div>
+          <h4>Good badges</h4>
+          <div class="badges-container">
+            <%= render 'shared/badges', badges: @good_badges %>
+          </div>
+        </div>
+        <div>
+          <h4>Legendary badges</h4>
+          <div class="badges-container">
+            <%= render 'shared/badges', badges: @legendary_badges %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'badges/index'
   get 'challenges/show'
   get 'tips/show'
   get 'dashboard', to: 'pages#dashboard'
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   get 'search_users', to: 'pages#search_users'
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, only: [:index]
+  resources :badges, only: [:index]
   post 'users/:user_id/friendships', to: 'friendships#create', as: :friendships
   resources :friendships, only: [:update]
   root to: 'pages#home'

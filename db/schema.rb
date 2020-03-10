@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_123124) do
+ActiveRecord::Schema.define(version: 2020_03_10_151812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_123124) do
     t.bigint "user_id"
     t.bigint "car_id"
     t.bigint "self_rating_id"
+    t.bigint "badge_id"
+    t.index ["badge_id"], name: "index_actions_on_badge_id"
     t.index ["car_id"], name: "index_actions_on_car_id"
     t.index ["challenge_id"], name: "index_actions_on_challenge_id"
     t.index ["self_rating_id"], name: "index_actions_on_self_rating_id"
@@ -58,6 +60,10 @@ ActiveRecord::Schema.define(version: 2020_03_10_123124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "badge_type"
+    t.string "trigger"
+    t.string "countable"
+    t.integer "threshold"
+    t.integer "stars"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -107,16 +113,6 @@ ActiveRecord::Schema.define(version: 2020_03_10_123124) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "profile_badges", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "badge_id"
-    t.integer "stars"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["badge_id"], name: "index_profile_badges_on_badge_id"
-    t.index ["user_id"], name: "index_profile_badges_on_user_id"
-  end
-
   create_table "self_ratings", force: :cascade do |t|
     t.integer "overall_score"
     t.integer "pickup_trash_score"
@@ -152,6 +148,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_123124) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "actions", "badges"
   add_foreign_key "actions", "cars"
   add_foreign_key "actions", "challenges"
   add_foreign_key "actions", "self_ratings"
@@ -161,8 +158,6 @@ ActiveRecord::Schema.define(version: 2020_03_10_123124) do
   add_foreign_key "challenges", "categories"
   add_foreign_key "notifications", "friendships"
   add_foreign_key "notifications", "users"
-  add_foreign_key "profile_badges", "badges"
-  add_foreign_key "profile_badges", "users"
   add_foreign_key "self_ratings", "users"
   add_foreign_key "tips", "categories"
 end
