@@ -18,7 +18,7 @@ class Action < ApplicationRecord
   protected
 
   def check_for_badge
-    puts "Check for badge"
+
   end
 
   def timestamp_attributes_for_create
