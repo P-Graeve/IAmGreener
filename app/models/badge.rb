@@ -1,10 +1,11 @@
 require 'pry-byebug'
 class Badge < ApplicationRecord
-  enum badge_type: %i(
+  BADGE_TYPES = %i(
     good
     bad
     legendary
   )
+  enum badge_type: BADGE_TYPES
   # name
   # description
   # icon_url
@@ -26,6 +27,12 @@ class Badge < ApplicationRecord
     when 'legendary'
       { background: 'rgba(179, 138, 43, 0.1)', outline: 'rgb(235, 164, 0)'}
     end
+  end
+
+  def self.sort_by_type
+    badges = []
+    all = Badge.order('threshold DESC')
+    badge_type
   end
 
   def self.all_names
