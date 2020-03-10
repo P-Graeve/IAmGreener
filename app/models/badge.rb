@@ -29,10 +29,8 @@ class Badge < ApplicationRecord
     end
   end
 
-  def self.sort_by_type
-    badges = []
-    all = Badge.order('threshold DESC')
-    badge_type
+  def self.find_by_type(type)
+    Badge.where(badge_type: type)
   end
 
   def self.all_names

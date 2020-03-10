@@ -1,5 +1,8 @@
 class BadgesController < ApplicationController
   def index
-    @badges = Badge.sort_by_type
+    @good_badges = Badge.find_by_type('good')
+    @bad_badges = Badge.find_by_type('bad')
+    @legendary_badges = Badge.find_by_type('legendary')
+    raise
   end
 end
