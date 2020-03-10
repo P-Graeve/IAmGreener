@@ -6,10 +6,10 @@
     </button>
   </div>
 
-  <form action="/search_users">
-    <input class="search-users" type="text" name="query" placeholder="Search a user" value="<%= params[:query] || '' %>">
+  <%= form_tag users_path, method: "get" do %>
+    <%= text_field_tag "query" %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-  </form>
+  <% end %>
 
   <ul class="ui-nav-list">
     <% if user_signed_in? %>
