@@ -12,13 +12,4 @@ class PagesController < ApplicationController
   def contact
 
   end
-
-  def search_users
-    if params[:query].present?
-      @users = User.where(username: params[:query])
-    else
-      @users = User.all
-    end
-  end
-
 end
