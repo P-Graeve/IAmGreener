@@ -92,7 +92,7 @@ class User < ApplicationRecord
 
   # challenges
   def todays_challenge
-    todays_progress[:daily_challenge]
+    Challenge.all.sample
   end
 
   def challenge_completed?

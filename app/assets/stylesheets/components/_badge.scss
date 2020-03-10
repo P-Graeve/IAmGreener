@@ -20,6 +20,9 @@
     @media (min-width: 700px) {
       padding: 27px;
     }
+    @media (min-width: 991px) {
+      padding: 35px;
+    }
     z-index: 100;
     &.scaled-img {
       transform: translateY(5px) scale(1.1);
@@ -31,6 +34,9 @@
     z-index: 100;
     color: #ffa600;
     bottom: 20px;
+    @media (min-width: 700px) {
+      font-size: 18px;
+    }
     &#middle-star {
       bottom: 16px;
     }

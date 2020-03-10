@@ -38,8 +38,14 @@
 #nav-h2 {
   color: $white;
   font-weight: bolder;
-  font-size: 35px;
+  font-size: 18px;
   text-decoration: none;
+  @media (min-width: 416px) {
+  font-size: 25px;
+  }
+  @media (min-width: 718px) {
+    font-size: 35px;
+  }
   &:hover {
     color: $white;
     text-decoration: none;
@@ -72,7 +78,6 @@
   }
 
   #nav-h2 {
-    font-size: 25px;
     padding: 0;
     margin: 0;
   }
