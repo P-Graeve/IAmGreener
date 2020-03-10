@@ -4,7 +4,17 @@ class Action < ApplicationRecord
   belongs_to :self_rating, optional: true
   belongs_to :user
 
-  enum name: %i(sign_up sign_in open_app earn_tree complete_challenge earn_badge add_car remove_car add_self_rating)
+  enum name: %i(
+    sign_up
+    sign_in
+    open_app
+    earn_tree
+    complete_challenge
+    earn_badge
+    add_car
+    remove_car
+    add_self_rating
+  )
 
   validates :user, presence: true
   validates :count, presence: true, numericality: true
