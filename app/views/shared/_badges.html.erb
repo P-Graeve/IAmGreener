@@ -1,23 +1,19 @@
 <% if !badges.size.zero? %>
-<div class="ui-card">
-  <div class="badges-container">
-    <% badges.each do |badge| %>
-    <div title="<%= badge.name %>" class="ui-badge text-center">
-      <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}"), class: "#{'scaled-img' if badge.stars.nil?}") %>
-      <% if !badge.stars.nil? %>
-        <% (1..badge.stars).each do |i| %>
-          <i id="<%= 'middle-star' if i == (badge.stars.fdiv(2).round) %>" class="fas fa-star"></i>
-        <% end %>
-      <% else %>
-        <div style="height: 30px;"></div>
-      <% end %>
-      <div class="svg-background">
-        <svg viewBox="0 0 100 130">
-          <path fill="<%= badge.color[:background] %>" stroke="<%= badge.color[:outline] %>" stroke-width="3" d="M10 10 V100 l40 20 l40 -20 V10 Z"></path>
-        </svg>
-      </div>
-    </div>
-    <% end %>
+<% badges.each do |badge| %>
+<div title="<%= badge.name %>" class="ui-badge text-center">
+  <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}"), class: "#{'scaled-img' if badge.stars.nil?}") %>
+  <% if !badge.stars.nil? %>
+  <% (1..badge.stars).each do |i| %>
+  <i id="<%= 'middle-star' if i == (badge.stars.fdiv(2).round) %>" class="fas fa-star"></i>
+  <% end %>
+  <% else %>
+  <div style="height: 30px;"></div>
+  <% end %>
+  <div class="svg-background">
+    <svg viewBox="0 0 100 130">
+      <path fill="<%= badge.color[:background] %>" stroke="<%= badge.color[:outline] %>" stroke-width="3" d="M10 10 V100 l40 20 l40 -20 V10 Z"></path>
+    </svg>
   </div>
 </div>
+<% end %>
 <% end %>

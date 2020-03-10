@@ -1,8 +1,8 @@
 require 'pry-byebug'
 class Badge < ApplicationRecord
   BADGE_TYPES = %i(
-    good
     bad
+    good
     legendary
   )
   enum badge_type: BADGE_TYPES
