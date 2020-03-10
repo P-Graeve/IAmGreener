@@ -2,7 +2,6 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:user_id])
     if @friendship.save
-      puts 'added friend'
       redirect_to search_users_path
     else
       puts 'unable to add friend'
