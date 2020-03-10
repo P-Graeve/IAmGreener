@@ -18,6 +18,9 @@
     width: 100%;
     padding: 27px;
     z-index: 100;
+    &.scaled-img {
+      transform: translateY(5px) scale(1.2);
+    }
   }
   i {
     position: relative;

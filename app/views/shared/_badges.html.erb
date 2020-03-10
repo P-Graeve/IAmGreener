@@ -3,10 +3,12 @@
   <div class="badges-container">
     <% @badges.each do |badge| %>
     <div title="<%= badge.name %>" class="ui-badge text-center">
-      <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}")) %>
-      <i class="fas fa-star"></i>
-      <i id="middle-star" class="far fa-star"></i>
-      <i class="far fa-star"></i>
+      <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}"), class: "#{'scaled-img' if badge.stars.nil?}") %>
+      <% if !badge.stars.nil? %>
+        <% badge.stars.each_with_index do |s, i| %>
+          <i id="<%= 'middle-star' if i == 1 %>" class="fas fa-star"></i>
+        <% end %>
+      <% end %>
       <div class="svg-background">
         <svg viewBox="0 0 100 130" preserveAspectRatio="true">
           <path fill="rgba(42, 139, 123, 0.1)" stroke="rgb(32, 99, 83)" stroke-width="3" d="M10 10 V100 l40 20 l40 -20 V10 Z"></path>
