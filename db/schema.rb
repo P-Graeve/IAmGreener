@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_145649) do
+ActiveRecord::Schema.define(version: 2020_03_10_151812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_145649) do
     t.bigint "user_id"
     t.bigint "car_id"
     t.bigint "self_rating_id"
+    t.bigint "badge_id"
+    t.index ["badge_id"], name: "index_actions_on_badge_id"
     t.index ["car_id"], name: "index_actions_on_car_id"
     t.index ["challenge_id"], name: "index_actions_on_challenge_id"
     t.index ["self_rating_id"], name: "index_actions_on_self_rating_id"
@@ -143,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_145649) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "actions", "badges"
   add_foreign_key "actions", "cars"
   add_foreign_key "actions", "challenges"
   add_foreign_key "actions", "self_ratings"

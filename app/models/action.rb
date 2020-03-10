@@ -2,6 +2,7 @@ class Action < ApplicationRecord
   belongs_to :challenge, optional: true
   belongs_to :car, optional: true
   belongs_to :self_rating, optional: true
+  belongs_to :badge, optional: true
   belongs_to :user
 
   enum name: %i(
