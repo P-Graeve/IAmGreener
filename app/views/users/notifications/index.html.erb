@@ -1,18 +1,28 @@
 <div class="container">
   <div class="col-12 col-md-6 offset-md-3">
-      <h1>Notifications</h1>
-      <div class="notif-card">
-        <% current_user.notifications.each do |notif| %>
-        <ul>
-          <div class="flash flash-success dismissable fade show" role="alert">
-            <li><%= notif.message %></li>
-            <a data-dismiss="alert" aria-label="Close">
-              <i class="fas fa-times"></i>
-            </a>
+    <h1>Notifications</h1>
+    <div class="notif-cards">
+      <% @notifications.each do |notif| %>
+      <ul>
+        <div class="notif-card">
+          <li id = "message" ><%= notif.message %></li>
+          <% if notif.friend_request? %>
+          <%= link_to 'Accept', friendship_path(notif.friendship), method: :patch  %>
+          <% end %>
+          <% if notif.friend_accepted? %>
+          <div class="accepted">
+            <span>Accepted</span>
+            <i class="fas fa-check"></i>
           </div>
-        </ul>
-        <% end %>
-      </div>
+          <% end %>
+          <%= link_to users_notification_path(notif), method: :delete do  %>
+          <span><i class="fas fa-times" class = "delete-btn"></i></span>
+          <% end %>
+
+        </div>
+      </ul>
+      <% end %>
+    </div>
   </div>
 </div>
 
