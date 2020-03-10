@@ -9,8 +9,10 @@
           <p id="name"><strong><%= user.username %></strong></p>
         </div>
         <div class="add-user-btn">
-          <%= link_to "Add Friend ", friendships_path(:user_id => user), :method => :post %>
-          <i class="fas fa-user-plus"></i>
+          <%= link_to friendships_path(:user_id => user), :method => :post do %>
+            <span>Add Friend</span>
+            <i class="fas fa-user-plus"></i>
+          <% end %>
         </div>
       </div>
       <% end %>
