@@ -25,7 +25,7 @@ class Badge < ApplicationRecord
 
   def self.generate_for(action)
     count = action.total_count
-    badges = Badge.order('threshold DESC').where('trigger = ? AND threshold >= ?', action.name, count)
+    badges = Badge.order('threshold DESC').where('trigger = ? AND threshold <= ?', action.name, count)
     return false if badges.empty?
 
     badges.first
