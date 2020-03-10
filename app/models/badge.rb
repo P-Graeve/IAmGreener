@@ -9,4 +9,10 @@ class Badge < ApplicationRecord
     # sign up
 
   end
+
+  def self.all_names
+    Badge.all.map do |badge|
+      badge.name
+    end
+  end
 end
