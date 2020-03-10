@@ -1,4 +1,3 @@
-require 'pry-byebug'
 class Badge < ApplicationRecord
   BADGE_TYPES = %i(
     bad
