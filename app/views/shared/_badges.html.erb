@@ -2,7 +2,7 @@
 <div class="ui-card">
   <div class="badges-container">
     <% @badges.each do |badge| %>
-    <div class="ui-badge text-center">
+    <div title="<%= badge.name %>" class="ui-badge text-center">
       <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}")) %>
       <i class="fas fa-star"></i>
       <i id="middle-star" class="far fa-star"></i>
