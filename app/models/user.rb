@@ -98,4 +98,22 @@ class User < ApplicationRecord
   def challenge_completed?
     false
   end
+
+  # friends
+  def friends_with?(friend)
+    # select all friendships that are accepted
+    accepted_friendship = Friendship.find_by(user: self, friend: friend, accepted: true)
+    !accepted_friendship.nil?
+  end
+
+  def requested?(friend)
+    requested_friendship = Friendship.find_by(user: self, friend: friend, accepted: false)
+    !requested_friendship.nil?
+  end
+
+  # filters
+
+  def self.by_name(name)
+    where("username ILIKE ?", "%#{name}%")
+  end
 end
