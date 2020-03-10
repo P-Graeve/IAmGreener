@@ -2,13 +2,18 @@
   <div class="col-12 col-md-6 offset-md-3">
       <h1>Notifications</h1>
       <div class="notif-card">
-        <% current_user.notifications.each do |notif| %>
+        <% @notifications.each do |notif| %>
         <ul>
           <div class="flash flash-success dismissable fade show" role="alert">
             <li><%= notif.message %></li>
-            <a data-dismiss="alert" aria-label="Close">
-              <i class="fas fa-times"></i>
-            </a>
+            <% if notif.friend_request? %>
+            <%= link_to 'Accept', friendship_path(notif.friendship), method: :patch  %>
+            <% end %>
+            <% if notif.friend_accepted? %>
+              <span>Accepted</span>
+              <i class="fas fa-check"></i>
+            <% end %>
+            <%= link_to "Delete" , users_notifications_path  %>
           </div>
         </ul>
         <% end %>
