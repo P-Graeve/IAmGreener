@@ -43,7 +43,7 @@ class Action < ApplicationRecord
 
   def check_for_badge
     badge = Badge.generate_for(self)
-    if !user.badges.includes?(badge)
+    if !user.badges.include?(badge)
       # create new action -> earn badge
       Action.create(user: user, count: 1, name: 'earn_badge', badge: badge)
     end

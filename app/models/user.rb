@@ -112,8 +112,15 @@ class User < ApplicationRecord
   end
 
   # filters
-
   def self.by_name(name)
     where("username ILIKE ?", "%#{name}%")
+  end
+
+  # badges
+  def badges
+    actions = Action.where(user: self, name: 'earn_badge')
+    actions.map do |action|
+      action.badge
+    end
   end
 end
