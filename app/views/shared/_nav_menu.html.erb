@@ -6,21 +6,25 @@
     </button>
   </div>
 
+  <%= form_tag users_path, method: "get" do %>
+    <%= text_field_tag "query" %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
   <ul class="ui-nav-list">
     <% if user_signed_in? %>
     <%= link_to destroy_user_session_path, method: :delete do %>
-      <li class="ui-menu-item">sign out</li>
+    <li class="ui-menu-item">sign out</li>
     <% end %>
 
     <% else %>
 
     <%= link_to new_user_session_path do %>
-      <li class="ui-menu-item">sign in</li>
+    <li class="ui-menu-item">sign in</li>
     <% end %>
 
     <%= link_to new_user_registration_path do %>
-      <li class="ui-menu-item">sign up</li>
+    <li class="ui-menu-item">sign up</li>
     <% end %>
 
     <% end %>

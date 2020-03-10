@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(version: 2020_03_10_092825) do
     t.index ["category_id"], name: "index_challenges_on_category_id"
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "accepted", default: false
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.bigint "user_id"
     t.string "message"
