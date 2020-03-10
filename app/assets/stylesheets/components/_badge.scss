@@ -16,19 +16,23 @@
   img {
     position: relative;
     width: 100%;
-    padding: 27px;
+    padding: 17px;
+    @media (min-width: 700px) {
+      padding: 27px;
+    }
     z-index: 100;
     &.scaled-img {
-      transform: translateY(5px) scale(1.2);
+      transform: translateY(5px) scale(1.1);
     }
   }
   i {
+    font-size: 12px;
     position: relative;
     z-index: 100;
     color: #ffa600;
-    bottom: 26px;
+    bottom: 20px;
     &#middle-star {
-      bottom: 20px;
+      bottom: 16px;
     }
   }
 }
