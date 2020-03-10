@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 2020_03_10_151812) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "notification_type", default: 0, null: false
+    t.bigint "friendship_id"
+    t.index ["friendship_id"], name: "index_notifications_on_friendship_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
@@ -153,6 +156,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_151812) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
   add_foreign_key "challenges", "categories"
+  add_foreign_key "notifications", "friendships"
   add_foreign_key "notifications", "users"
   add_foreign_key "self_ratings", "users"
   add_foreign_key "tips", "categories"
