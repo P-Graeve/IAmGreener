@@ -1,3 +1,36 @@
+.badges-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+.ui-badge {
+  position: relative;
+  .svg-background {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
+  img {
+    position: relative;
+    width: 100%;
+    padding: 27px;
+    z-index: 100;
+  }
+  i {
+    position: relative;
+    z-index: 100;
+    color: #ffa600;
+    bottom: 26px;
+    &#middle-star {
+      bottom: 20px;
+    }
+  }
+}
+
+
 .badges-ui-card {
   padding: 0;
   margin: 0;
