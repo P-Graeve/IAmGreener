@@ -3,9 +3,10 @@ registration_badge = Badge.new(name: 'Saving the Earth', description: 'You regis
 zero_waste1 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 2, stars: 1)
 zero_waste2 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 5, stars: 2)
 zero_waste3 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 10, stars: 3)
-tree_lord1 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 2, stars: 1)
-tree_lord2 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count', threshold: 5, stars: 2)
-tree_lord3 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 10, stars: 3)
+king_of_the_forest = Badge.new(name: 'King of the Forest', description: 'You earned a lot of trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count', threshold: 10_000)
+tree_lord1 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 500, stars: 1)
+tree_lord2 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count', threshold: 3000, stars: 2)
+tree_lord3 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 5000, stars: 3)
 aquarius1 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 2, stars: 1)
 aquarius2 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 5, stars: 2)
 aquarius3 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 10, stars: 3)
@@ -28,6 +29,7 @@ sloth = Badge.new(name: 'Sloth', description: 'We have not seen you in a while. 
 got_them = Badge.new(name: 'Gotta catch em all', description: 'You got all the badges! Congrats!', icon_url: '001-medal-1.svg')
 poseidon = Badge.new(name: 'Poseidon', description: 'You finished all the water challenges!', icon_url: '006-poseidon.svg')
 # save them with the right type
+king_of_the_forest.legendary!
 registration_badge.good!
 zero_waste1.good!
 zero_waste2.good!
