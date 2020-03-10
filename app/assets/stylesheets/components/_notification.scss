@@ -1,14 +1,25 @@
-.flash {
+.notif-card {
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 4px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  border-radius: 5px;
   margin: 8px;
+  border: 2px solid #216353;
 }
 
-.flash-success {
-  border: 2px solid #1EDD88;
+#message{
+  flex-grow: 1;
+}
+.accepted{
+  color: green;
+  margin-right: 10px;
+}
+a{
+  color: #333;
+  &:hover{
+    color: grey;
+  }
 }
