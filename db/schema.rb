@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_110030) do
+ActiveRecord::Schema.define(version: 2020_03_10_145649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,15 +108,6 @@ ActiveRecord::Schema.define(version: 2020_03_10_110030) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "profile_badges", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "badge_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["badge_id"], name: "index_profile_badges_on_badge_id"
-    t.index ["user_id"], name: "index_profile_badges_on_user_id"
-  end
-
   create_table "self_ratings", force: :cascade do |t|
     t.integer "overall_score"
     t.integer "pickup_trash_score"
@@ -160,8 +151,6 @@ ActiveRecord::Schema.define(version: 2020_03_10_110030) do
   add_foreign_key "cars", "users"
   add_foreign_key "challenges", "categories"
   add_foreign_key "notifications", "users"
-  add_foreign_key "profile_badges", "badges"
-  add_foreign_key "profile_badges", "users"
   add_foreign_key "self_ratings", "users"
   add_foreign_key "tips", "categories"
 end
