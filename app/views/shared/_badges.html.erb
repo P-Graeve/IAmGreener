@@ -1,10 +1,17 @@
 <% if !@badges.size.zero? %>
-<div class="badges-ui-card">
-  <div class="d-flex badge-flex-container">
+<div class="ui-card">
+  <div class="badges-container">
     <% @badges.each do |badge| %>
-    <div class="badge-ui-card text-center">
-      <p><%= badge.name %></p>
+    <div class="ui-badge text-center">
       <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}")) %>
+      <i class="fas fa-star"></i>
+      <i id="middle-star" class="far fa-star"></i>
+      <i class="far fa-star"></i>
+      <div class="svg-background">
+        <svg viewBox="0 0 100 130" preserveAspectRatio="true">
+          <path fill="rgba(42, 139, 123, 0.1)" stroke="rgb(32, 99, 83)" stroke-width="3" d="M10 10 V100 l40 20 l40 -20 V10 Z"></path>
+        </svg>
+      </div>
     </div>
     <% end %>
   </div>
