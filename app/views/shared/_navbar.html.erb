@@ -12,12 +12,13 @@
         <i class="fas fa-tree nav-icons icon-score"></i>
       </span>
     </div>
-    <div class="d-flex align-items-center">
-      <span class='font-weight-bold text-white responsive-span'>
-        <%= current_user.notifications.size %>
-        <%= link_to users_notifications_path do %>
+    <div class="notification-bell-container">
+      <%= link_to users_notifications_path do %>
+        <div class="notification-bubble">
+          <%= current_user.notifications.size %>
+        </div>
         <i class="fas fa-bell nav-icons icon-score"></i>
-        <% end %>
+      <% end %>
       </span>
     </div>
     <div class="d-flex align-items-center">
