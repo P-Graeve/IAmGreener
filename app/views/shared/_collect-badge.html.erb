@@ -1,3 +1,11 @@
-<div class="collect-badge-container">
-
+<div class="collect-badge-window-container <%= 'collect-badge-appear' if badges.size > 0 %>">
+  <div class="ui-card collect-badge-window p-5 text-center">
+    <h2 class="">You earned a new badge!</h2>
+    <% if badges.size > 0 %>
+      <% badges.each do |badge| %>
+        <p>badge.name</p>
+      <% end %>
+      <button class="ui-btn">Collect</button>
+    <% end %>
+  </div>
 </div>

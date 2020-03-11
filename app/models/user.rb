@@ -143,4 +143,16 @@ class User < ApplicationRecord
     end
     filtered.flatten
   end
+
+  def to_be_collected
+    # list all badges that are yet to be collected
+    # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
+    actions = Action.order('created_at DESC').where(user: self)
+    to_be_collected = []
+    actions.each do |action|
+      break if action.collect_badge?
+      to_be_collected << action if action.earn_badge?
+    end
+    to_be_collected
+  end
 end

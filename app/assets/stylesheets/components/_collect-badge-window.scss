@@ -1,0 +1,19 @@
+.collect-badge-window-container {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,255,255,.4);
+  transition: left 500ms ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .collect-badge-window {
+    max-width: 500px;
+  }
+  &.collect-badge-appear {
+    left: 0!important;
+  }
+}
