@@ -137,17 +137,23 @@ class User < ApplicationRecord
     badges.include?(badge)
   end
 
+  def is_collected?(badge)
+    # find an action with name collect_badge and this badge
+    actions = self.actions.where(name: 7, badge: badge)
+    !actions.empty?
+  end
+
   def to_be_collected
     # list all badges that are yet to be collected
     # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
-    actions = Action.order('created_at DESC').where(user: self, name: 'earn_badge')
+    badge_actions = self.actions.order('created_at DESC').where(name: 6)
     to_be_collected = []
-    actions.each do |action|
-      if Action.find_by(badge: action.badge, name: 'collect_badge').nil?
+    badge_actions.each do |action|
+      if is_collected?(action.badge)
         to_be_collected << action.badge
       end
     end
     # return sorted from big to small
-    to_be_collected.sort_by { |badge| badge.threshold }.uniq
+    to_be_collected.uniq
   end
 end

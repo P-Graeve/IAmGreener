@@ -9,16 +9,10 @@
         <p><%= sentence %></p>
       <% end %>
 
-      <% if !@daily_progress.daily_challenge_completed? %>
+      <% unless current_user.challenge_completed?(@challenge) %>
         <h3>Challenge status:</h3>
 
-        <%= simple_form_for([@challenge, @daily_progress]) do |f| %>
-          <%= f.input :daily_challenge_completed, as: :radio_buttons, collection: DailyProgress::STATES %>
 
-          <div class="submit-btn ">
-            <%= f.submit "Submit" %>
-          </div>
-        <% end %>
       <% else %>
         <p class="alert-warning p-3">
           You've already completed this challenge!
