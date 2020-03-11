@@ -1,12 +1,14 @@
 <%# Prompts for in the top %>
-
 <% if !current_user.streak_count.zero? %>
   <%= render 'shared/daily_streak_flash' %>
 <% end %>
 
-<% if !current_user.todays_progress[:daily_challenge_completed?] %>
+<% if !current_user.challenge_completed? %>
   <%= render 'shared/daily_challenge_flash' %>
 <% end %>
+
+<%# Render collect badge page (empty by default) on the right side of the screen %>
+<%= render 'shared/collect-badge', badges: current_user.to_be_collected, action: @action %>
 
 <div class="container">
   <div class="row">
@@ -16,7 +18,7 @@
     </div>
 
     <div class="col-12 col-md-6">
-      <div class="ui-card badges-container">
+      <div class="ui-card badges-container dashboard-badges">
         <%= render 'shared/badges', badges: @badges %>
       </div>
     </div>

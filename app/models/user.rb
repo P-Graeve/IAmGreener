@@ -88,6 +88,7 @@ class User < ApplicationRecord
 
   def todays_progress
     progress_from(0.days.ago)
+
   end
 
   # challenges
@@ -117,10 +118,46 @@ class User < ApplicationRecord
   end
 
   # badges
-  def badges
-    actions = Action.where(user: self, name: 'earn_badge')
+  def all_badges
+    actions = Action.where(user: self, name: 'collect_badge')
     actions.map do |action|
       action.badge
     end
+  end
+
+  def badges
+    badges = all_badges
+    grouped = badges.group_by do |badge|
+      badge.name
+    end.values
+    filtered = grouped.map do |group|
+      if group.size > 1
+        sorted_group = group.sort_by do |badge|
+          -badge.threshold
+        end
+        sorted_group[0]
+      else
+        group
+      end
+    end
+    filtered.flatten
+  end
+
+  def has_badge?(badge)
+    badges.include?(badge)
+  end
+
+  def to_be_collected
+    # list all badges that are yet to be collected
+    # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
+    actions = Action.order('created_at DESC').where(user: self, name: 'earn_badge')
+    to_be_collected = []
+    actions.each do |action|
+      if Action.find_by(badge: action.badge, name: 'collect_badge').nil?
+        to_be_collected << action.badge
+      end
+    end
+    # return sorted from big to small
+    to_be_collected.sort_by { |badge| badge.threshold }.uniq
   end
 end

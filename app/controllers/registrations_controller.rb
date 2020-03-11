@@ -2,9 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     # create a sign up action
-    action = Action.new(user: @user, count: 1)
-    # save with the name of sign up
-    action.sign_up!
+    action = Action.create(user: @user, count: 1, name: 'sign_up')
   end
 
   protected
