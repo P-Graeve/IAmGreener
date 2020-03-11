@@ -118,7 +118,7 @@ class User < ApplicationRecord
 
   # badges
   def all_badges
-    actions = Action.where(user: self, name: 'earn_badge')
+    actions = Action.where(user: self, name: 'collect_badge')
     actions.map do |action|
       action.badge
     end
@@ -153,6 +153,6 @@ class User < ApplicationRecord
       end
     end
     # return sorted from big to small
-    to_be_collected.sort_by { |badge| badge.threshold }
+    to_be_collected.sort_by { |badge| badge.threshold }.uniq
   end
 end
