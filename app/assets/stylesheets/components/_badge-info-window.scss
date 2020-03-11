@@ -15,8 +15,8 @@
 }
 
 .badge-info-window {
+  padding: 10px;
   width: 400px;
-  height: 200px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.3);
   .badge-info-window-top {
@@ -28,5 +28,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+  .badge-info-window-image {
+    width: 140px;
+    margin: 0 auto;
+  }
+  .badge-info-window-details {
+    margin: 30px 0;
+
   }
 }
