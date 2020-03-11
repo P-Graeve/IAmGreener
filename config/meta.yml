@@ -1,0 +1,5 @@
+meta_product_name: "Greener"
+meta_title: "I am Greener - Combat global warming the easy way."
+meta_description: "I am greener is an App that motivates you to achieve your goal to reduce your ecological footprint."
+meta_image: "category_pictures/energy.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
