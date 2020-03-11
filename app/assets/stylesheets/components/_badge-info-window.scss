@@ -9,6 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  &.infowindow-appear {
+    left: 0;
+  }
 }
 
 .badge-info-window {

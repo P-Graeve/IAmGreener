@@ -1,6 +1,6 @@
 <% if !badges.size.zero? %>
   <% badges.each do |badge| %>
-    <div title="<%= badge.name %>" class="ui-badge text-center <%= 'gray-filter' unless current_user.has_badge?(badge) %> ">
+    <div title="<%= badge.name %>" class="ui-badge text-center <%= 'gray-filter' unless current_user.has_badge?(badge) %>" data-badge-id="<%= badge.id %>">
       <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}"), class: "#{'scaled-img' if badge.stars.nil?}") %>
       <% if !badge.stars.nil? %>
         <% (1..badge.stars).each do |i| %>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="badge-info-window-container">
+    <div class="badge-info-window-container" id="badge-<%= badge.id %>">
       <div class="badge-info-window">
         <div class="badge-info-window-top">
           <i id="close-badge-window" class="fas fa-times"></i>
