@@ -88,6 +88,7 @@ class User < ApplicationRecord
 
   def todays_progress
     progress_from(0.days.ago)
+
   end
 
   # challenges

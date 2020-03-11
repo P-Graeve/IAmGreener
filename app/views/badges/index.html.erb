@@ -3,29 +3,34 @@
     <div class="col-12 col-md-8 offset-md-2">
       <div class="ui-card px-5">
         <div class="total-badges-list">
+
           <h4 class="mt-2">Bad badges</h4>
           <div class="badges-container">
             <% @bad_badges.each do |badge| %>
               <%= render 'shared/badges', badges: [badge], gray_filter: !current_user.badges.include?(badge) %>
             <% end %>
           </div>
-        </div>
-        <div>
+
+
+
           <h4 class="mt-2">Good badges</h4>
           <div class="badges-container">
             <% @good_badges.each do |badge| %>
               <%= render 'shared/badges', badges: [badge] %>
             <% end %>
           </div>
-        </div>
-        <div>
+
+
+
           <h4 class="mt-2">Legendary badges</h4>
           <div class="badges-container">
             <% @legendary_badges.each do |badge| %>
               <%= render 'shared/badges', badges: [badge] %>
             <% end %>
           </div>
+
         </div>
+
       </div>
     </div>
   </div>

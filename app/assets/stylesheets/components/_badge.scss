@@ -29,9 +29,12 @@
 
 // STYLES ONLY FOR TOTAL BADGE LIST
 .total-badges-list {
+  .more-info-btn {
+    display: none;
+  }
   .badges-container {
     .gray-filter {
-      filter: grayscale(100%) brightness(1.3);
+      filter: grayscale(100%) brightness(1.2);
     }
   }
 }
