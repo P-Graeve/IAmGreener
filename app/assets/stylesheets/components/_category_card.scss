@@ -4,32 +4,33 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
 .category-ui-card{
-  background-size: cover;
-  background-position: center;
-  height: 180px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 10px;
-  a {
-    color:white;
-    text-decoration: none;
-    &:hover{
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.2);
+  margin: 15px;
+  display:flex;
+
+  img {
+  height: 150px;
+  width: 50%;
+  padding-top: 15px;
+  padding-bottom: 5px;
   }
+
 }
 
+.link {
+    margin-top: 60px;
+    margin-left: 60px;
+    padding: 10px;
+    justify-content: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
+    a{
+      text-decoration: none;
+    }
+  }
 
 @media (min-width: 900px) {
 
