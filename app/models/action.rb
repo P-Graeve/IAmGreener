@@ -13,6 +13,7 @@ class Action < ApplicationRecord
     new_daily_challenge
     complete_challenge
     earn_badge
+    collect_badge
     add_car
     remove_car
     add_self_rating

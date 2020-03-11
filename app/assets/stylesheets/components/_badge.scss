@@ -1,7 +1,42 @@
 .badges-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
+// STYLES ONLY FOR THE DASHBOARD
+
+.dashboard-badges {
+  .ui-badge {
+    img {
+      padding: 27px;
+      @media (min-width: 768px) {
+        padding: 17px;
+      }
+      @media (min-width: 992px) {
+        padding: 24px;
+      }
+    }
+    i {
+      @media (min-width: 768px) {
+        font-size: 12px;
+      }
+      @media (min-width: 992px) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// STYLES ONLY FOR TOTAL BADGE LIST
+.total-badges-list {
+  .more-info-btn {
+    display: none;
+  }
+  .badges-container {
+    .gray-filter {
+      filter: grayscale(100%) brightness(1.2);
+    }
+  }
 }
 
 .ui-badge {

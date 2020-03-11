@@ -6,6 +6,8 @@ import { rateYourselfHover } from '../self_rating/rating';
 import { initAvatarUploadBtn } from '../sign_up/displayAvatar';
 import { initDashboard } from '../dashboard/initDashboard';
 import { initChart } from '../dashboard/initChart';
+import { initBadgeCollect } from '../dashboard/initBadgeCollect';
+import { initBadgeInfoWindow } from '../dashboard/initBadgeInfoWindow';
 
 
 rateYourselfHover();
@@ -14,3 +16,5 @@ initHamburgerIcon();
 initAvatarUploadBtn();
 initDashboard();
 initChart();
+initBadgeCollect();
+initBadgeInfoWindow();

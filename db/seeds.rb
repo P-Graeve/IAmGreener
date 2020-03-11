@@ -1,11 +1,11 @@
 require "open-uri"
 
 puts 'Cleaning DB...'
+Notification.destroy_all
 Friendship.destroy_all
 Action.destroy_all
 Badge.destroy_all
 Tip.destroy_all
-Notification.destroy_all
 Challenge.destroy_all
 Car.destroy_all
 User.destroy_all

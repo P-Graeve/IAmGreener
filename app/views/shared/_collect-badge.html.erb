@@ -1,0 +1,20 @@
+<div class="collect-badge-window-container" data-appear="<%= badges.size > 0 %>">
+  <div class="ui-card collect-badge-window py-4 px-5 text-center">
+    <h2 class="pb-3">You earned <%= pluralize(badges.size, 'badge') %>!</h2>
+    <% if badges.size > 0 %>
+      <% badges.each_with_index do |badge, index| %>
+      <div class="earned-badge-container">
+        <%# Render badge image %>
+        <div class="badge-image-container">
+          <%= render 'shared/badges', badges: [badge] %>
+        </div>
+        <div class="text-left pl-3 badge-details">
+          <h4><%= badge.name %></h4>
+          <p><%= badge.description %></p>
+        </div>
+        <%= link_to "Collect", actions_path(badge_id: badge.id, name: 'collect_badge'), method: :post, class: 'ui-btn' %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
