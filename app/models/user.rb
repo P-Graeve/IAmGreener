@@ -73,9 +73,21 @@ class User < ApplicationRecord
     end
   end
 
-  def challenge_completed?
-    if self.actions_from_day('complete challenge') = true
-    end
+  def todays_challenge_completed?
+    # find an action
+    # from this user
+    # from today
+
+    # where name is complete_challenge
+
+    # and challenge that is linked is todays challenge
+    action = self.actions_from_day(Date.today).find_by(name: 5, challenge: todays_challenge)
+    !action.nil?
+  end
+
+  def challenge_completed?(challenge)
+    actions = self.actions.where(challenge: challenge, name: 5)
+    !actions.empty?
   end
 
   # friends
