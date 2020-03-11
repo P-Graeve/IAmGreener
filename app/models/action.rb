@@ -12,6 +12,7 @@ class Action < ApplicationRecord
     earn_tree
     complete_challenge
     earn_badge
+    collect_badge
     add_car
     remove_car
     add_self_rating
