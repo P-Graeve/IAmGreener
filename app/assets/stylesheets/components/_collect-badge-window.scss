@@ -24,6 +24,20 @@
   .badge-image-container {
     width: 130px;
     height: 100px;
+    i {
+      font-size: 10px;
+    }
+    img {
+      padding: 15px;
+    }
+    @media (min-width: 380px) {
+      i {
+        font-size: 12px;
+      }
+      img {
+        padding: 20px;
+      }
+    }
   }
   p {
     margin: 0;

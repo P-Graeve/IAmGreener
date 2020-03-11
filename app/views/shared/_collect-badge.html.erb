@@ -13,12 +13,10 @@
           <p><%= badge.description %></p>
         </div>
         <%= simple_form_for(Action.new) do |f| %>
-          <%= f.hidden :badge_id, badge.id %>
-          <%= f.hidden :name, 'collect_badge' %>
-          <%= f.submit class: 'ui-btn' %>
+          <%= f.input :badge_id, value: badge.id, as: :hidden %>
+          <%= f.input :name, value: 'collect_badge', as: :hidden %>
+          <%= f.submit "Collect", class: 'ui-btn no-margin' %>
         <% end %>
-
-        <button class="ui-btn">Collect</button>
       </div>
       <% end %>
 
