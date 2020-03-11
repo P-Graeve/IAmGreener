@@ -1,4 +1,4 @@
-<div class="collect-badge-window-container <%= 'collect-badge-appear' if badges.size > 0 %>">
+<div class="collect-badge-window-container" data-appear="<%= badges.size > 0%>">
   <div class="ui-card collect-badge-window py-4 px-5 text-center">
     <h2 class="pb-3">You earned <%= pluralize(badges.size, 'badge') %>!</h2>
     <% if badges.size > 0 %>
@@ -15,7 +15,6 @@
         <%= link_to "Collect", actions_path(badge_id: badge.id, name: 'collect_badge'), method: :post, class: 'ui-btn' %>
       </div>
       <% end %>
-
     <% end %>
   </div>
 </div>
