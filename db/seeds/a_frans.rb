@@ -4,18 +4,14 @@ user7.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
 user7.save
 
 # create sign up action
-sign_up_action = Action.new(user: user7, count: 1, created_at: 1.month.ago)
-sign_up_action.sign_up!
-
+sign_up_action = Action.create(user: user7, count: 1, created_at: 1.month.ago, name: 'sign_up')
 # create car
 # generate a car
 audi = Car.create(model: 'A6', brand: 'Audi', year: 2014, user: user7, mpg: 26.3)
 # create car add action
-car_ac = Action.new(user: user7, car: audi, count: 1)
-car_ac.add_car!
+car_ac = Action.create(user: user7, car: audi, count: 1, name: 'add_car')
 
 # generate some earn tree actions
 (1..8).each do |i|
-  action = Action.new(user: user7, count: rand(200..500), created_at: i.days.ago)
-  action.earn_tree!
+  action = Action.create(user: user7, count: rand(200..500), created_at: i.days.ago, name: 'earn_tree')
 end
