@@ -1,12 +1,12 @@
 registration_badge = Badge.new(name: 'Saving the Earth', description: 'You registered to I am greener', icon_url: '012-reward-1.svg', trigger: 'sign_up', countable: 'count', threshold: 1)
 
-zero_waste1 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 2, stars: 1)
-zero_waste2 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 5, stars: 2)
-zero_waste3 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 10, stars: 3)
 king_of_the_forest = Badge.new(name: 'King of the Forest', description: 'You earned a lot of trees!', icon_url: 'deer.svg', trigger: 'earn_tree', countable: 'count', threshold: 10_000)
 tree_lord1 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 500, stars: 1)
 tree_lord2 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count', threshold: 3000, stars: 2)
 tree_lord3 = Badge.new(name: 'Lord of the Trees', description: 'You did a lot of challenges and earned those trees!', icon_url: '004-joshua-tree.svg', trigger: 'earn_tree', countable: 'count' , threshold: 5000, stars: 3)
+zero_waste1 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 2, stars: 1)
+zero_waste2 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 5, stars: 2)
+zero_waste3 = Badge.new(name: 'Zero Waste Queen', description: 'You refused to buy food in plastic', icon_url: '001-waste.svg', trigger: 'complete_challenge', countable: 'count', threshold: 10, stars: 3)
 aquarius1 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 2, stars: 1)
 aquarius2 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 5, stars: 2)
 aquarius3 = Badge.new(name: 'Aquarius', description: 'You saved a lot of water.', icon_url: '004-medal.svg', trigger: 'complete_challenge', countable: 'count' , threshold: 10, stars: 3)
@@ -23,11 +23,11 @@ pig_driver = Badge.new(name: 'Pig Driver', description: 'You are driving a dirty
 friendly_car = Badge.new(name: 'Friendly Neighbourhood Car', description: 'Your car is easygoing and nice. Everybody loves it.', icon_url: '016-car.svg', trigger: 'add_car')
 streaker = Badge.new(name: 'Streaker', description: 'You kept your daily streak up for a while now! Keep going, make this change happen!', icon_url: '013-advertising.svg', trigger: 'open_app')
 
-apollo = Badge.new(name: 'Apollo', description: 'You finished all the energy challenges. Amazing!', icon_url: '011-apollo.svg')
-olympus = Badge.new(name: 'Olympus', description: 'You are so dedicated! You finished all our challenges!', icon_url: '012-olympus.svg')
 sloth = Badge.new(name: 'Sloth', description: 'We have not seen you in a while. It would be nice to see you more often.', icon_url: '015-sloth.svg')
 got_them = Badge.new(name: 'Gotta catch em all', description: 'You got all the badges! Congrats!', icon_url: '001-medal-1.svg')
+apollo = Badge.new(name: 'Apollo', description: 'You finished all the energy challenges. Amazing!', icon_url: '011-apollo.svg')
 poseidon = Badge.new(name: 'Poseidon', description: 'You finished all the water challenges!', icon_url: '006-poseidon.svg')
+olympus = Badge.new(name: 'Olympus', description: 'You are so dedicated! You finished all our challenges!', icon_url: '012-olympus.svg')
 # save them with the right type
 king_of_the_forest.legendary!
 registration_badge.good!

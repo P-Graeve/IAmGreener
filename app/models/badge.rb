@@ -29,7 +29,17 @@ class Badge < ApplicationRecord
   end
 
   def self.find_by_type(type)
-    Badge.where(badge_type: type)
+    badges = Badge.where(badge_type: type)
+    # remove any duplicates
+    array = badges.group_by { |b| b.name }.values.map do |group|
+      if group.size > 1
+        sorted_group = group.sort_by { |b| -b.threshold }
+        [sorted_group.first]
+      else
+        group
+      end
+    end
+    array.flatten
   end
 
   def self.all_names

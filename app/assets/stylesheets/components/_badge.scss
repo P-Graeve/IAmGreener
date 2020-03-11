@@ -30,8 +30,9 @@
 // STYLES ONLY FOR TOTAL BADGE LIST
 .total-badges-list {
   .badges-container {
-
-
+    .gray-filter {
+      filter: grayscale(100%) brightness(1.3);
+    }
   }
 }
 
