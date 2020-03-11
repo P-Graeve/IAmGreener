@@ -5,9 +5,11 @@
       <div class="category-ui-cards">
         <div class="ui-card-grid">
           <% categories.each do |category| %>
-            <div class="category-ui-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("category_pictures/#{category.name.downcase}.jpg") %>')">
-              <p><%= link_to category.name, category_path(category) %></p>
+          <div class="category-ui-card">
+            <%= image_tag(asset_path("category_pictures/#{category.name.downcase}.svg"))%>
+            <div class="link"><h5><%= link_to category.name, category_path(category) %></h5>
             </div>
+          </div>
           <% end %>
         </div>
       </div>
