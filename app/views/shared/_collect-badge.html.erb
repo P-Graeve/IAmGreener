@@ -15,7 +15,7 @@
         <%= simple_form_for(Action.new) do |f| %>
           <%= f.hidden :badge_id, badge.id %>
           <%= f.hidden :name, 'collect_badge' %>
-          <%= f.submit %>
+          <%= f.submit class: 'ui-btn' %>
         <% end %>
 
         <button class="ui-btn">Collect</button>

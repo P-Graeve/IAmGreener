@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'users/:user_id/friendships', to: 'friendships#create', as: :friendships
   resources :friendships, only: [:update]
   root to: 'pages#home'
+  resources :actions, only: [:create]
   resources :categories, only: [:show]
   resources :challenges, only: [:show] do
     resources :daily_progresses, only: [:update]
