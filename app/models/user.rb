@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class User < ApplicationRecord
   attr_writer :login
 
@@ -117,10 +119,28 @@ class User < ApplicationRecord
   end
 
   # badges
-  def badges
+  def all_badges
     actions = Action.where(user: self, name: 'earn_badge')
     actions.map do |action|
       action.badge
     end
+  end
+
+  def badges
+    badges = all_badges
+    grouped = badges.group_by do |badge|
+      badge.name
+    end.values
+    filtered = grouped.map do |group|
+      if group.size > 1
+        sorted_group = group.sort_by do |badge|
+          -badge.threshold
+        end
+        sorted_group[0]
+      else
+        group
+      end
+    end
+    filtered.flatten
   end
 end
