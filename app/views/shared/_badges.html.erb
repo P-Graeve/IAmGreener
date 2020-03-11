@@ -1,6 +1,6 @@
 <% if !badges.size.zero? %>
 <% badges.each do |badge| %>
-<div title="<%= badge.name %>" class="ui-badge text-center">
+<div title="<%= badge.name %>" class="ui-badge text-center <%= 'gray-filter' unless current_user.has_badge?(badge) %> ">
   <%= image_tag(asset_path("badges_icons/svg/#{badge.icon_url}"), class: "#{'scaled-img' if badge.stars.nil?}") %>
   <% if !badge.stars.nil? %>
   <% (1..badge.stars).each do |i| %>

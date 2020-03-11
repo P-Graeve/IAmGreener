@@ -49,3 +49,7 @@ ul {
 .no-margin {
   margin: 0!important;
 }
+
+.gray-filter {
+  filter: grayscale(100%) brightness(1.3);
+}

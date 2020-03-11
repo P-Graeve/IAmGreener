@@ -142,6 +142,10 @@ class User < ApplicationRecord
     filtered.flatten
   end
 
+  def has_badge?(badge)
+    badges.include?(badge)
+  end
+
   def to_be_collected
     # list all badges that are yet to be collected
     # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
