@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class User < ApplicationRecord
   attr_writer :login
 

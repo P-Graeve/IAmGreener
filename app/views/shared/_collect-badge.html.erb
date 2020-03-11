@@ -12,6 +12,11 @@
           <h4><%= badge.name %></h4>
           <p><%= badge.description %></p>
         </div>
+        <%= simple_form_for(Action.new) do |f| %>
+          <%= f.hidden :badge_id, badge.id %>
+          <%= f.submit %>
+        <% end %>
+
         <button class="ui-btn">Collect</button>
       </div>
       <% end %>
