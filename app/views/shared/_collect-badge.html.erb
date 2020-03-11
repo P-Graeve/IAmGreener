@@ -2,21 +2,17 @@
   <div class="ui-card collect-badge-window py-4 px-5 text-center">
     <h2 class="pb-3">You earned <%= pluralize(badges.size, 'badge') %>!</h2>
     <% if badges.size > 0 %>
-      <% badges.each do |badge| %>
+      <% [badges.first].each_with_index do |badge, index| %>
       <div class="earned-badge-container">
         <%# Render badge image %>
         <div class="badge-image-container">
           <%= render 'shared/badges', badges: [badge] %>
         </div>
-        <div class="text-left pl-3">
+        <div class="text-left pl-3 badge-details">
           <h4><%= badge.name %></h4>
           <p><%= badge.description %></p>
         </div>
-        <%= simple_form_for(Action.new) do |f| %>
-          <%= f.input :badge_id, value: badge.id, as: :hidden %>
-          <%= f.input :name, value: 'collect_badge', as: :hidden %>
-          <%= f.submit "Collect", class: 'ui-btn no-margin' %>
-        <% end %>
+        <%= link_to "Collect", actions_path(badge_id: badge.id, name: 'collect_badge'), method: :post, class: 'ui-btn' %>
       </div>
       <% end %>
 

@@ -8,7 +8,7 @@
 <% end %>
 
 <%# Render collect badge page (empty by default) on the right side of the screen %>
-<%= render 'shared/collect-badge', badges: current_user.to_be_collected %>
+<%= render 'shared/collect-badge', badges: current_user.to_be_collected, action: @action %>
 
 <div class="container">
   <div class="row">

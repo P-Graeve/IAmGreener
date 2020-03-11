@@ -1,16 +1,13 @@
 class ActionsController < ApplicationController
   def create
-    action = Action.new(action_params, count: 1)
+    if params[:badge_id].present?
+      badge = Badge.find(params[:badge_id])
+    end
+    action = Action.new(count: 1, badge: badge, name: params[:name], user: current_user)
     if action.save
       redirect_to dashboard_path
     else
       raise
     end
-  end
-
-  private
-
-  def action_params
-    params.require(:action).permit(:name, :badge_id)
   end
 end

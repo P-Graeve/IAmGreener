@@ -145,11 +145,12 @@ class User < ApplicationRecord
   def to_be_collected
     # list all badges that are yet to be collected
     # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
-    actions = Action.order('created_at DESC').where(user: self)
+    actions = Action.order('created_at DESC').where(user: self, name: 'earn_badge')
     to_be_collected = []
     actions.each do |action|
-      break if action.collect_badge?
-      to_be_collected << action.badge if action.earn_badge?
+      if Action.find_by(badge: action.badge, name: 'collect_badge').nil?
+        to_be_collected << action.badge
+      end
     end
     # return sorted from big to small
     to_be_collected.sort_by { |badge| badge.threshold }

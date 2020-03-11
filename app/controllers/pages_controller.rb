@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   def dashboard
     @categories = Category.all
     @badges = current_user.badges
-    @actions = current_user.actions
+    @action = Action.new
   end
 
   def contact
