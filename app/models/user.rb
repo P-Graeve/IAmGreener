@@ -151,8 +151,9 @@ class User < ApplicationRecord
     to_be_collected = []
     actions.each do |action|
       break if action.collect_badge?
-      to_be_collected << action if action.earn_badge?
+      to_be_collected << action.badge if action.earn_badge?
     end
-    to_be_collected
+    # return sorted from big to small
+    to_be_collected.sort_by { |badge| badge.threshold }
   end
 end

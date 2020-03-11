@@ -17,3 +17,16 @@
     left: 0!important;
   }
 }
+
+.earned-badge-container {
+  display: flex;
+  align-items: center;
+  .badge-image-container {
+    width: 130px;
+    height: 100px;
+  }
+  p {
+    margin: 0;
+  }
+  margin-bottom: 30px;
+}
