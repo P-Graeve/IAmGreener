@@ -35,35 +35,20 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  def streak_count
-    5
-  end
-
   # actions
   def actions_from_day(date)
-    actions = Action.where(user: self)
-    actions.select do |action|
-      action.created_at.strftime('%d-%m-%y') == date.strftime('%d-%m-%y')
-    end
+    self.actions.where("DATE(created_at) = ?", date)
   end
 
   # trees
   def trees
     # get all trees from user
-    actions.select do |action|
-      action.earn_tree?
-    end.map do |action|
-      action.count
-    end.sum
+    self.actions.where(name: 3).sum(:count)
   end
 
   def trees_on_day(date)
     # get the sum of the total amount of trees on a certain day
-    actions_from_day(date).select do |action|
-      action.earn_tree?
-    end.map do |action|
-      action.count
-    end.sum
+    actions_from_day(date).where(name: 3).sum(:count)
   end
 
   def trees_by_day_this_week
@@ -77,26 +62,19 @@ class User < ApplicationRecord
     trees_arr
   end
 
-  # progress
-  def progress_from(date)
-    puts "Progress from #{date}"
-    {
-      daily_challenge_completed?: false,
-      daily_challenge: Challenge.all.sample
-    }
-  end
-
-  def todays_progress
-    progress_from(0.days.ago)
-  end
-
   # challenges
   def todays_challenge
-    Challenge.all.sample
+    # check if Action 'new_daily_challenge' is already there for today
+    action = actions.where(name: 4).find_by("DATE(created_at) = ?", Date.today)
+    if action.nil?
+      Action.create(user: self, name: "new_daily_challenge", challenge: Challenge.all.sample, count: 1)
+    else
+      action.challenge
+    end
   end
 
   def challenge_completed?
-    false
+    if self.actions_from_day('complete challenge') = true
   end
 
   # friends

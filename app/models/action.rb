@@ -10,6 +10,7 @@ class Action < ApplicationRecord
     sign_in
     open_app
     earn_tree
+    new_daily_challenge
     complete_challenge
     earn_badge
     add_car
