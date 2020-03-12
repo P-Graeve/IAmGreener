@@ -53,7 +53,20 @@ class Badge < ApplicationRecord
     count = action.total_count_of_this_action_for_user
     badges = Badge.order('threshold DESC').where('trigger = ? AND threshold <= ?', action.name, count)
     return false if badges.empty?
-
-    badges.first
+    # special badges
+    case action.name
+    when 'add_car'
+      byebug
+      # we have 2 actions for car, we should check if the car that is added has less than 20 mpg to be considered dirty
+      if action.car.mpg <= 15
+        # generate dirty badge
+        badges.find_by(name: 'Pig Driver')
+      else
+        # generate nice car badge
+        badges.find_by(name: 'Friendly Neighbourhood Car')
+      end
+    else
+      badges.first
+    end
   end
 end
