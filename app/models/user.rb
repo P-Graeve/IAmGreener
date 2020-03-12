@@ -137,15 +137,7 @@ class User < ApplicationRecord
 
   def to_be_collected
     # list all badges that are yet to be collected
-    # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
-    badge_actions = self.actions.order('created_at DESC').where(name: 6)
-    to_be_collected = []
-    badge_actions.each do |action|
-      if is_collected?(action.badge)
-        to_be_collected << action.badge
-      end
-    end
-    # return sorted from big to small
-    to_be_collected.uniq
+    # reject the ones of the earned badges that are already collected
+    all_earned_badges.reject { |badge| is_collected?(badge) }
   end
 end

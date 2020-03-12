@@ -17,10 +17,10 @@
       <%= render 'shared/progress_graph' %>
     </div>
 
-    <% if @badges.size > 0 %>
+    <% if current_user.badges.size > 0 %>
       <div class="col-12 col-md-6">
         <div class="ui-card badges-container dashboard-badges">
-          <%= render 'shared/badges', badges: @badges %>
+          <%= render 'shared/badges', badges: current_user.badges %>
         </div>
       </div>
     <% end %>
