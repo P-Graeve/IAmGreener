@@ -1,10 +1,10 @@
 <%# Prompts for in the top %>
 <% if !current_user.streak.zero? %>
-  <%= render 'shared/daily_streak_flash' %>
+<%= render 'shared/daily_streak_flash' %>
 <% end %>
 
 <% if !current_user.todays_challenge_completed? %>
-  <%= render 'shared/daily_challenge_flash' %>
+<%= render 'shared/daily_challenge_flash' %>
 <% end %>
 
 <%# Render collect badge page (empty by default) on the right side of the screen %>
@@ -17,14 +17,37 @@
       <%= render 'shared/progress_graph' %>
     </div>
 
-    <% if current_user.badges.size > 0 %>
-      <div class="col-12 col-md-6">
-        <div class="ui-card badges-container dashboard-badges">
-          <%= render 'shared/badges', badges: current_user.badges %>
-        </div>
-      </div>
-    <% end %>
+    <div class="col-12 col-md-6">
 
+      <% if current_user.badges.size > 0 %>
+      <div class="ui-card badges-container dashboard-badges">
+        <%= render 'shared/badges', badges: current_user.badges %>
+      </div>
+      <% end %>
+
+      <div class="friends-ui-card">
+        <h3>Ranking:</h3>
+        <div class="friends-ui-cards-list">
+
+          <% current_user.friends.each do |friend| %>
+          <div class="friend-ui-card">
+            <%= cl_image_tag friend.avatar.attached? ? friend.avatar.key : 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', height: 300, width: 400, crop: :fill, class: "avatar" %>
+            <div class="friend-name">
+              <span class='ml-3'><%= friend.username %></span>
+            </div>
+            <div class="friend-trees">
+              <%= friend.trees %>
+              <i class="fas fa-tree"></i>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
+
+
+      </div>
+
+    </div>
 
   </div>
 </div>
