@@ -28,17 +28,17 @@ class Action < ApplicationRecord
   end
 
   def total_count
-    # fetch all actions with the same name as this one
-    actions = Action.where(name: self.name)
-    # sum all counts of previous actions
-    total = actions.map do |action|
-      action.count
-    end.sum
-    # if current action is not saved yet, add its count too
-    if self.id.nil?
-      total += self.count
-    end
-    total
+    # # fetch all actions with the same name as this one
+    # actions = Action.where(name: self.name)
+    # # sum all counts of previous actions
+    # total = actions.map do |action|
+    #   action.count
+    # end.sum
+    # # if current action is not saved yet, add its count too
+    # if self.id.nil?
+    #   total += self.count
+    # end
+    # total
   end
 
   protected
