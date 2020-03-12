@@ -56,7 +56,6 @@ class Badge < ApplicationRecord
     # special badges
     case action.name
     when 'add_car'
-      byebug
       # we have 2 actions for car, we should check if the car that is added has less than 20 mpg to be considered dirty
       if action.car.mpg <= 15
         # generate dirty badge
