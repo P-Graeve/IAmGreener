@@ -6,7 +6,9 @@
     </button>
   </div>
   <div class="username">
-    <h3>Welcome <%= current_user.username%> </h3>
+
+    <h3><%= "Welcome #{current_user.username}" if user_signed_in? %></h3>
+
   </div>
   <div class="search-bar">
     <%= form_tag users_path, method: "get" do %>

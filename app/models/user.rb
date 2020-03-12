@@ -35,35 +35,20 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
-  def streak_count
-    5
-  end
-
   # actions
   def actions_from_day(date)
-    actions = Action.where(user: self)
-    actions.select do |action|
-      action.created_at.strftime('%d-%m-%y') == date.strftime('%d-%m-%y')
-    end
+    self.actions.where("DATE(created_at) = ?", date)
   end
 
   # trees
   def trees
     # get all trees from user
-    actions.select do |action|
-      action.earn_tree?
-    end.map do |action|
-      action.count
-    end.sum
+    self.actions.where(name: 3).sum(:count)
   end
 
   def trees_on_day(date)
     # get the sum of the total amount of trees on a certain day
-    actions_from_day(date).select do |action|
-      action.earn_tree?
-    end.map do |action|
-      action.count
-    end.sum
+    actions_from_day(date).where(name: 3).sum(:count)
   end
 
   def trees_by_day_this_week
@@ -77,27 +62,32 @@ class User < ApplicationRecord
     trees_arr
   end
 
-  # progress
-  def progress_from(date)
-    puts "Progress from #{date}"
-    {
-      daily_challenge_completed?: false,
-      daily_challenge: Challenge.all.sample
-    }
-  end
-
-  def todays_progress
-    progress_from(0.days.ago)
-
-  end
-
   # challenges
   def todays_challenge
-    Challenge.all.sample
+    # check if Action 'new_daily_challenge' is already there for today
+    action = actions.where(name: 4).find_by("DATE(created_at) = ?", Date.today)
+    if action.nil?
+      Action.create(user: self, name: "new_daily_challenge", challenge: Challenge.all.sample, count: 1)
+    else
+      action.challenge
+    end
   end
 
-  def challenge_completed?
-    false
+  def todays_challenge_completed?
+    # find an action
+    # from this user
+    # from today
+
+    # where name is complete_challenge
+
+    # and challenge that is linked is todays challenge
+    action = self.actions_from_day(Date.today).find_by(name: 5, challenge: todays_challenge)
+    !action.nil?
+  end
+
+  def challenge_completed?(challenge)
+    actions = self.actions.where(challenge: challenge, name: 5)
+    !actions.empty?
   end
 
   # friends
@@ -147,17 +137,23 @@ class User < ApplicationRecord
     badges.include?(badge)
   end
 
+  def is_collected?(badge)
+    # find an action with name collect_badge and this badge
+    actions = self.actions.where(name: 7, badge: badge)
+    !actions.empty?
+  end
+
   def to_be_collected
     # list all badges that are yet to be collected
     # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
-    actions = Action.order('created_at DESC').where(user: self, name: 'earn_badge')
+    badge_actions = self.actions.order('created_at DESC').where(name: 6)
     to_be_collected = []
-    actions.each do |action|
-      if Action.find_by(badge: action.badge, name: 'collect_badge').nil?
+    badge_actions.each do |action|
+      if is_collected?(action.badge)
         to_be_collected << action.badge
       end
     end
     # return sorted from big to small
-    to_be_collected.sort_by { |badge| badge.threshold }.uniq
+    to_be_collected.uniq
   end
 end

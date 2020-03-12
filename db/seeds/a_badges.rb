@@ -24,9 +24,8 @@ friendly_car = Badge.new(name: 'Friendly Neighbourhood Car', description: 'Your 
 streaker1 = Badge.new(name: 'Streaker', description: 'You kept your daily streak up for a while now! Keep going, make this change happen!', icon_url: '013-advertising.svg', trigger: 'complete_daily_challenge', threshold: 7, countable: 'count', stars: 1)
 streaker2 = Badge.new(name: 'Streaker', description: 'You kept your daily streak up for a while now! Keep going, make this change happen!', icon_url: '013-advertising.svg', trigger: 'complete_daily_challenge', threshold: 30, countable: 'count', stars: 2)
 streaker3 = Badge.new(name: 'Streaker', description: 'You kept your daily streak up for a while now! Keep going, make this change happen!', icon_url: '013-advertising.svg', trigger: 'complete_daily_challenge', threshold: 100, countable: 'count', stars: 3)
-
 sloth = Badge.new(name: 'Sloth', description: 'We have not seen you in a while. It would be nice to see you more often.', icon_url: '015-sloth.svg', trigger: 'missed_day', threshold: 7)
-got_them = Badge.new(name: 'Gotta catch em all', description: 'You got all the badges! Congrats!', icon_url: '001-medal-1.svg', trigger: 'earn_badge', threshold: 10)
+got_them = Badge.new(name: 'Gotta catch em all', description: 'You got all the badges! Congrats!', icon_url: '001-medal-1.svg', trigger: 'earn_badge', threshold: 100)
 apollo = Badge.new(name: 'Apollo', description: 'You finished all the energy challenges. Amazing!', icon_url: '011-apollo.svg')
 poseidon = Badge.new(name: 'Poseidon', description: 'You finished all the water challenges!', icon_url: '006-poseidon.svg')
 olympus = Badge.new(name: 'Olympus', description: 'You are so dedicated! You finished all our challenges!', icon_url: '012-olympus.svg')
