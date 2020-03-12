@@ -7,6 +7,7 @@ class Users::SelfRatingsController < ApplicationController
     @self_rating = SelfRating.new(self_rating_params)
     if @self_rating.save
       # create action for self rating
+      Action.create(name: 'add_self_rating', user: current_user, self_rating: @self_rating)
     else
       render :new
     end
