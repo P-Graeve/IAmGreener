@@ -5,8 +5,8 @@ class Friendship < ApplicationRecord
   validates :user_id, uniqueness: { scope: :friend_id }
 
   # hook on after_create -> we create a new notification
-  after_create :create_notification
-  after_update :send_accepted_notification
+  after_create :send_new_notification
+  after_update :update_notification
   private
 
   def send_new_notification
