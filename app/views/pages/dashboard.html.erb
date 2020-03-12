@@ -11,13 +11,13 @@
 <%= render 'shared/collect-badge', badges: current_user.to_be_collected, action: @action %>
 
 <div class="container">
-  <div class="row mt-4">
+  <div class="row">
 
-    <div class="col-12 col-sm-10 offset-sm-1 offset-md-0 col-md-6">
+    <div class="col-12 col-sm-10 offset-sm-1 offset-md-0 col-md-6 mt-4">
       <%= render 'shared/progress_graph' %>
     </div>
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 mt-4">
 
     <% if current_user.badges.size > 0 %>
         <div class="ui-card m-0">
@@ -34,13 +34,14 @@
 
         <div class="friends-ui-cards-list">
 
-          <% current_user.friends_sorted_by_trees.each do |friend| %>
+          <% current_user.friends_sorted_by_trees.each_with_index do |friend, i| %>
 
-          <div class="friend-ui-card">
+          <div class='friend-ui-card <%= "rank-#{i + 1}" %>'>
             <%= cl_image_tag friend.avatar.attached? ? friend.avatar.key : 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60', height: 300, width: 400, crop: :fill, class: "avatar" %>
             <div class="friend-name">
               <span class='ml-3'><%= friend.username %></span>
             </div>
+            <i class="fas fa-trophy"></i>
             <div class="friend-trees">
               <%= friend.trees %>
               <i class="fas fa-tree"></i>
