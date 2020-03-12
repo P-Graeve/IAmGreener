@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+  has_many :actions
   BADGE_TYPES = %i(
     bad
     good

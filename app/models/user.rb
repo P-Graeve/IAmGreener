@@ -5,9 +5,8 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   has_many :notifications
+
   has_many :actions
-  has_many :profile_badges
-  has_many :badges, through: :profile_badges
 
   # friends association
   has_many :friendships
@@ -74,13 +73,6 @@ class User < ApplicationRecord
   end
 
   def todays_challenge_completed?
-    # find an action
-    # from this user
-    # from today
-
-    # where name is complete_challenge
-
-    # and challenge that is linked is todays challenge
     action = self.actions_from_day(Date.today).find_by(name: 5, challenge: todays_challenge)
     !action.nil?
   end
@@ -109,28 +101,14 @@ class User < ApplicationRecord
 
   # badges
   def all_badges
-    actions = Action.where(user: self, name: 'collect_badge')
-    actions.map do |action|
-      action.badge
-    end
+    self.actions.includes(:badge).where(name: 'collect_badge').map { |a| a.badge }
+    # Badge.joins(:actions).where('action.name = ?, action.user_id: ?', 'collect_badge', self.id)
+    # badges = self.actions.where(name: 7).references(:badge)
+    # byebug
   end
 
   def badges
-    badges = all_badges
-    grouped = badges.group_by do |badge|
-      badge.name
-    end.values
-    filtered = grouped.map do |group|
-      if group.size > 1
-        sorted_group = group.sort_by do |badge|
-          -badge.threshold
-        end
-        sorted_group[0]
-      else
-        group
-      end
-    end
-    filtered.flatten
+    # all_badges.group_by(:name)
   end
 
   def has_badge?(badge)
