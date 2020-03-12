@@ -102,11 +102,11 @@ class User < ApplicationRecord
   # badges
   def all_earned_badges
     # IMPORTANT DIFFERENCE: this will look on earned badges, not on collected badges!
-    self.actions.includes(:badge).where(name: 'earn_badge').map { |a| a.badge }
+    Badge.joins(:actions).where(actions: {name: 6, user: self})
   end
 
   def all_badges
-    self.actions.includes(:badge).where(name: 'collect_badge').map { |a| a.badge }
+    Badge.joins(:actions).where(actions: {name: 7, user: self})
   end
 
   def badges
