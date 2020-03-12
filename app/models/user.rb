@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :actions
 
+  has_many :self_ratings, through: :actions
+
   # friends association
   has_many :friendships
   has_many :friends, through: :friendships
