@@ -81,6 +81,30 @@ $streak-height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  i.fa-trophy {
+    display: none;
+  }
+  i.fa-tree {
+    color: green;
+  }
+  &.rank-1 {
+    i.fa-trophy {
+      color: gold;
+      display: inline;
+    }
+  }
+  &.rank-2 {
+    i.fa-trophy {
+      color: silver;
+      display: inline;
+    }
+  }
+  &.rank-3 {
+    i.fa-trophy {
+      color: brown;
+      display: inline;
+    }
+  }
 }
 .friends-ui-cards-list {
   overflow-y: scroll;
@@ -91,5 +115,6 @@ $streak-height: 80px;
   flex-grow: 1;
 }
 .friend-trees{
-  margin-right: 5px;
+  text-align: right;
+  width: 70px;
 }
