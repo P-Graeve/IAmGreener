@@ -11,8 +11,22 @@
 
       <% unless current_user.challenge_completed?(@challenge) %>
         <h3>Challenge status:</h3>
+        <%= form_tag complete_challenge_path do %>
+        <div class="form-group">
+          <%= radio_button_tag(:status, 'completed')  %>
+          <%= label_tag(:status_completed, 'completed')   %>
+        </div>
+        <div class="form-group">
+          <%= radio_button_tag(:status, 'not_possible') %>
+          <%= label_tag(:status_not_possilbe, 'could not complete the challenge') %>
+        </div>
+        <div class="form-group">
+          <%= radio_button_tag(:status, "not_completed") %>
+          <%= label_tag(:status_not_completed, 'did not complete challenge')  %>
+        </div>
 
-
+        <%= submit_tag("Submit") %>
+        <% end %>
       <% else %>
         <p class="alert-warning p-3">
           You've already completed this challenge!
