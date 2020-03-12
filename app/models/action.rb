@@ -17,6 +17,7 @@ class Action < ApplicationRecord
     add_car
     remove_car
     add_self_rating
+    missed_day
   )
 
   validates :user, presence: true
@@ -35,7 +36,7 @@ class Action < ApplicationRecord
 
   protected
 
-  # after create this is the action
+  # AFTER CREATE this is the action
   def check_for_badge
     new_badge = Badge.generate_for(self)
     if new_badge && !user.all_earned_badges.include?(new_badge)

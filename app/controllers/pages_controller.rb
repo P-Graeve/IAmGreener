@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    # user lands on dashboard! Add an action
+    Action.create(user: current_user, name: 'open_app')
     @categories = Category.all
     @badges = current_user.badges
     @action = Action.new
