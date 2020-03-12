@@ -37,11 +37,10 @@ class Action < ApplicationRecord
 
   def check_for_badge
     new_badge = Badge.generate_for(self)
-    # badge = Badge.generate_for(self)
-    # if badge && !user.badges.include?(badge)
-    #   # create new action -> earn badge
-    #   Action.create(user: user, count: 1, name: 'earn_badge', badge: badge)
-    # end
+    if badge && !user.all_badges.include?(badge)
+      # create a new action -> earn badge
+      Action.create(user: user, count: 1, name: 'earn_badge', badge: badge)
+    end
   end
 
   def timestamp_attributes_for_create
