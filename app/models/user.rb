@@ -109,6 +109,18 @@ class User < ApplicationRecord
 
   def badges
     # all_badges.group_by(:name)
+    # group the badges that have the same name
+    grouped_by_name = all_badges.group_by { |badge| badge.name }.values
+    # Only keep the one with the highest threshold
+    unique_array = grouped_by_name.map do |group|
+      # order by threshold
+      ordered_group = group.sort_by { |badge| -badge.threshold }
+      # only keep in the first one
+      ordered_group.first
+    end
+    # flatten the array
+    return unique_array.flatten
+    # TODO: sort the array by importance
   end
 
   def has_badge?(badge)
