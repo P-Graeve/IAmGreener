@@ -8,6 +8,6 @@ class SessionsController < Devise::SessionsController
   protected
 
   def after_sign_in_path_for(resource)
-    RAILS_ENV == 'production' ? 'http://www.iamgreener.life/dashboard' : '/dashboard'
+    dashboard_path
   end
 end
