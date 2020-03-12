@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+  has_many :actions
   BADGE_TYPES = %i(
     bad
     good
@@ -49,7 +50,7 @@ class Badge < ApplicationRecord
   end
 
   def self.generate_for(action)
-    count = action.total_count
+    count = action.total_count_of_this_action_for_user
     badges = Badge.order('threshold DESC').where('trigger = ? AND threshold <= ?', action.name, count)
     return false if badges.empty?
 

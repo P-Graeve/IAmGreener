@@ -5,9 +5,8 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
   has_many :notifications
+
   has_many :actions
-  has_many :profile_badges
-  has_many :badges, through: :profile_badges
 
   # friends association
   has_many :friendships
@@ -74,8 +73,6 @@ class User < ApplicationRecord
   end
 
   def todays_challenge_completed?
-    # find an action from this user from today
-    # where name is complete_challenge and challenge that is linked is todays challenge
     action = self.actions_from_day(Date.today).find_by(name: 5, challenge: todays_challenge)
     !action.nil?
   end
@@ -103,29 +100,29 @@ class User < ApplicationRecord
   end
 
   # badges
+  def all_earned_badges
+    # IMPORTANT DIFFERENCE: this will look on earned badges, not on collected badges!
+    Badge.joins(:actions).where(actions: {name: 6, user: self})
+  end
+
   def all_badges
-    actions = Action.where(user: self, name: 'collect_badge')
-    actions.map do |action|
-      action.badge
-    end
+    Badge.joins(:actions).where(actions: {name: 7, user: self})
   end
 
   def badges
-    badges = all_badges
-    grouped = badges.group_by do |badge|
-      badge.name
-    end.values
-    filtered = grouped.map do |group|
-      if group.size > 1
-        sorted_group = group.sort_by do |badge|
-          -badge.threshold
-        end
-        sorted_group[0]
-      else
-        group
-      end
+    # all_badges.group_by(:name)
+    # group the badges that have the same name
+    grouped_by_name = all_badges.group_by { |badge| badge.name }.values
+    # Only keep the one with the highest threshold
+    unique_array = grouped_by_name.map do |group|
+      # order by threshold
+      ordered_group = group.sort_by { |badge| -badge.threshold }
+      # only keep in the first one
+      ordered_group.first
     end
-    filtered.flatten
+    # flatten the array
+    return unique_array.flatten
+    # TODO: sort the array by importance
   end
 
   def has_badge?(badge)
@@ -140,15 +137,7 @@ class User < ApplicationRecord
 
   def to_be_collected
     # list all badges that are yet to be collected
-    # check if there was any actions with 'earn badge' AFTER the last 'collect badge'
-    badge_actions = self.actions.order('created_at DESC').where(name: 6)
-    to_be_collected = []
-    badge_actions.each do |action|
-      if is_collected?(action.badge)
-        to_be_collected << action.badge
-      end
-    end
-    # return sorted from big to small
-    to_be_collected.uniq
+    # reject the ones of the earned badges that are already collected
+    all_earned_badges.reject { |badge| is_collected?(badge) }
   end
 end
