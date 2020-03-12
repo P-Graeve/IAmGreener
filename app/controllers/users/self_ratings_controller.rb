@@ -1,6 +1,10 @@
 class Users::SelfRatingsController < ApplicationController
   def new
     @self_rating = SelfRating.new
+    # check if user has selfratings
+    if current_user.self_ratings.size > 0
+      redirect_to dashboard_path
+    end
   end
 
   def create

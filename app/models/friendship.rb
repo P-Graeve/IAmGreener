@@ -19,14 +19,14 @@ class Friendship < ApplicationRecord
   private
 
   def send_new_notification
-    notification = Notification.new(user_id: friend_id, message: "#{user.username} sent you a request", friendship: self)
-    notification.friend_request!
+    notification_type = self.accepted ? 'friend_accepted' : 'friend_request'
+    notification = Notification.create(notification_type: notification_type, user_id: friend_id, message: "#{user.username} sent you a request", friendship: self)
   end
 
   def update_notification
-    notification = Notification.find_by(friendship: self)
-    notification.friend_accepted!
+    notif = Notification.find_by(friendship: self)
+    notif.friend_accepted!
     # create notification for the friend as well
-    notification = Notification.create(user: user, message: "Your request got accepted by #{friend.username}")
+    Notification.create(user: user, message: "Your request got accepted by #{friend.username}")
   end
 end

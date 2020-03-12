@@ -42,6 +42,8 @@ class Action < ApplicationRecord
     if new_badge && !user.all_earned_badges.include?(new_badge)
       # create a new action -> earn badge
       Action.create(user: user, count: 1, name: 'earn_badge', badge: new_badge)
+      # create new notification that notifies the user with the new badge
+      Notification.create(user: user, message: "Congratulations on receiving the '#{new_badge.name}' badge!")
     end
   end
 

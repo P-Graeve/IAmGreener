@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :actions
 
+  has_many :self_ratings, through: :actions
+
   # friends association
   has_many :friendships
   has_many :friends, through: :friendships
@@ -73,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def todays_challenge_completed?
-    action = self.actions_from_day(Date.today).find_by(name: 'complete_challenge', challenge: todays_challenge)
+    action = self.actions_from_day(Date.today).find_by(name: 5, challenge: todays_challenge)
     !action.nil?
   end
 
@@ -84,7 +86,9 @@ class User < ApplicationRecord
 
   # friends
   def friends_sorted_by_trees
-    self.friends.sort_by { |friend| -friend.trees }
+    # include self
+    all = friends.to_a << self
+    all.sort_by { |friend| -friend.trees }
   end
 
   def friends_with?(friend)

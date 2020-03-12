@@ -25,6 +25,8 @@
           <%= label_tag(:status_not_completed, 'did not complete challenge')  %>
         </div>
 
+        <%= hidden_field_tag "challenge_id", @challenge.id %>
+
         <%= submit_tag("Submit", class: "ui-btn challenge-btn-special") %>
         <% end %>
       <% else %>
