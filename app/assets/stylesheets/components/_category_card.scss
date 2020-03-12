@@ -5,16 +5,16 @@
   }
 }
 .category-ui-card{
+  display:flex;
+  padding: 10px;
+  margin: 15px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0,0,0,.2);
-  margin: 15px;
-  display:flex;
 
   img {
   height: 150px;
   width: 50%;
-  padding-top: 15px;
-  padding-bottom: 5px;
+  padding: 10px;
   }
 
 }
@@ -25,9 +25,8 @@
     padding: 10px;
     justify-content: center;
     text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 
-    a{
+    h5, a {
       text-decoration: none;
     }
   }
