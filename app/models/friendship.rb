@@ -7,6 +7,15 @@ class Friendship < ApplicationRecord
   # hook on after_create -> we create a new notification
   after_create :send_new_notification
   after_update :update_notification
+
+  validate :disallow_self_referential_friendship
+
+  def disallow_self_referential_friendship
+    if friend_id == user_id
+      errors.add(:friend_id, 'cannot refer back to the user')
+    end
+  end
+
   private
 
   def send_new_notification

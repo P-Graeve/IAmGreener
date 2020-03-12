@@ -85,6 +85,10 @@ class User < ApplicationRecord
   end
 
   # friends
+  def friends_sorted_by_trees
+    self.friends.sort_by { |friend| -friend.trees }
+  end
+
   def friends_with?(friend)
     # select all friendships that are accepted
     accepted_friendship = Friendship.find_by(user: self, friend: friend, accepted: true)
