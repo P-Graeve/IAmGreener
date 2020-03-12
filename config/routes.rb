@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   get 'search_users', to: 'pages#search_users'
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
   resources :users, only: [:index]
   resources :badges, only: [:index]
   post 'users/:user_id/friendships', to: 'friendships#create', as: :friendships
