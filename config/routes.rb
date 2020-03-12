@@ -14,13 +14,14 @@ Rails.application.routes.draw do
   resources :friendships, only: [:update]
   root to: 'pages#home'
   resources :actions, only: [:create]
+  post '/actions/completed_challenge', to: 'actions#create_for_completed_challenge', as: :complete_challenge
+  get '/challenges/completed'
+  get '/challenges/failed'
   resources :categories, only: [:show]
   resources :challenges, only: [:show] do
     resources :daily_progresses, only: [:update]
   end
   resources :tips, only: [:show]
-  get 'daily_progresses/completed'
-  get 'daily_progresses/failed'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :users do
