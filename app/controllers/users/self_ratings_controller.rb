@@ -6,13 +6,11 @@ class Users::SelfRatingsController < ApplicationController
   def create
     @self_rating = SelfRating.new(self_rating_params)
     if @self_rating.save
-      if Badge.new?
-        Badge.redirect
-      else
-        redirect_to dashboard_path
-      end
+      # create action for self rating
+      Action.create(name: 'add_self_rating', user: current_user, self_rating: @self_rating)
+      redirect_to dashboard_path
     else
-      render :new
+      redirect_to dashboard_path
     end
   end
 

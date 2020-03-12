@@ -29,10 +29,9 @@ class Users::CarsController < ApplicationController
         # save the car
         @car.save
         # fetch the info we need from the api
-        if @car.update(mpg: @car.fetch_mpg)
-        else
-          raise
-        end
+        @car.update(mpg: @car.fetch_mpg)
+        # create an action with the car
+        Action.create(car: @car, user: current_user, name: 'add_car')
 
         respond_to do |format|
           # redirect to dashboard page

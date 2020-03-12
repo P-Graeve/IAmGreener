@@ -11,8 +11,8 @@
         <div class="text-left pl-3 badge-details">
           <h4><%= badge.name %></h4>
           <p><%= badge.description %></p>
+          <%= link_to "Collect", actions_path(badge_id: badge.id, name: 'collect_badge'), method: :post, class: 'ui-btn' %>
         </div>
-        <%= link_to "Collect", actions_path(badge_id: badge.id, name: 'collect_badge'), method: :post, class: 'ui-btn' %>
       </div>
       <% end %>
     <% end %>
