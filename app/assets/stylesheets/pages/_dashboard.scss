@@ -67,3 +67,54 @@ $streak-height: 80px;
     grid-template-columns: 1fr 1fr;
   }
 }
+.friends-ui-card{
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  margin: 5px;
+  padding: 10px;
+}
+.friend-ui-card{
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.1);
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i.fa-trophy {
+    display: none;
+  }
+  i.fa-tree {
+    color: green;
+  }
+  &.rank-1 {
+    i.fa-trophy {
+      color: gold;
+      display: inline;
+    }
+  }
+  &.rank-2 {
+    i.fa-trophy {
+      color: silver;
+      display: inline;
+    }
+  }
+  &.rank-3 {
+    i.fa-trophy {
+      color: brown;
+      display: inline;
+    }
+  }
+}
+.friends-ui-cards-list {
+  overflow-y: scroll;
+  height: 200px;
+
+}
+.friend-name{
+  flex-grow: 1;
+}
+.friend-trees{
+  text-align: right;
+  width: 70px;
+}
