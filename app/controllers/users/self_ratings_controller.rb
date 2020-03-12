@@ -8,8 +8,9 @@ class Users::SelfRatingsController < ApplicationController
     if @self_rating.save
       # create action for self rating
       Action.create(name: 'add_self_rating', user: current_user, self_rating: @self_rating)
+      redirect_to dashboard_path
     else
-      render :new
+      redirect_to dashboard_path
     end
   end
 

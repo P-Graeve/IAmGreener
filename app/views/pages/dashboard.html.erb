@@ -11,7 +11,7 @@
 <%= render 'shared/collect-badge', badges: current_user.to_be_collected, action: @action %>
 
 <div class="container">
-  <div class="row">
+  <div class="row mt-4">
 
     <div class="col-12 col-sm-10 offset-sm-1 offset-md-0 col-md-6">
       <%= render 'shared/progress_graph' %>
@@ -19,8 +19,12 @@
 
     <% if current_user.badges.size > 0 %>
       <div class="col-12 col-md-6">
-        <div class="ui-card badges-container dashboard-badges">
+        <div class="ui-card m-0">
+        <h2>My badges</h2>
+        <div class="badges-container dashboard-badges">
+
           <%= render 'shared/badges', badges: current_user.badges %>
+        </div>
         </div>
       </div>
     <% end %>
