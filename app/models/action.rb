@@ -29,27 +29,27 @@ class Action < ApplicationRecord
   end
 
   def total_count
-    # fetch all actions with the same name as this one
-    actions = Action.where(name: self.name)
-    # sum all counts of previous actions
-    total = actions.map do |action|
-      action.count
-    end.sum
-    # if current action is not saved yet, add its count too
-    if self.id.nil?
-      total += self.count
-    end
-    total
+    # # fetch all actions with the same name as this one
+    # actions = Action.where(name: self.name)
+    # # sum all counts of previous actions
+    # total = actions.map do |action|
+    #   action.count
+    # end.sum
+    # # if current action is not saved yet, add its count too
+    # if self.id.nil?
+    #   total += self.count
+    # end
+    # total
   end
 
   protected
 
   def check_for_badge
-    badge = Badge.generate_for(self)
-    if badge && !user.badges.include?(badge)
-      # create new action -> earn badge
-      Action.create(user: user, count: 1, name: 'earn_badge', badge: badge)
-    end
+    # badge = Badge.generate_for(self)
+    # if badge && !user.badges.include?(badge)
+    #   # create new action -> earn badge
+    #   Action.create(user: user, count: 1, name: 'earn_badge', badge: badge)
+    # end
   end
 
   def timestamp_attributes_for_create
