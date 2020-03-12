@@ -36,7 +36,7 @@ class Users::CarsController < ApplicationController
 
         respond_to do |format|
           # redirect to dashboard page
-          format.html { redirect_to self_ratings_new_path }
+          format.html { redirect_to users_self_ratings_path }
           # redirect to dashboard page
           format.js { render :create_car }
         end
