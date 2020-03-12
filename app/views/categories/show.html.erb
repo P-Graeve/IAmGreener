@@ -1,5 +1,12 @@
   <div class="category-banner" style='background-image: url("<%= asset_path("category_pictures/#{@category.name.downcase}.svg") %>")'>
-   <h1><%= @category.name %></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 id="category-title"><%= @category.name %></h1>
+
+        </div>
+      </div>
+    </div>
  </div>
  <div class="container">
   <div class="row">
