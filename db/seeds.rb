@@ -16,7 +16,7 @@ Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
   load seed
 end
 
-puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{Action.count} actions"
+puts "Success! You have #{Car.count} car, #{Notification.count} notifications, #{Action.count} actions, #{Friendship.count} friendships"
 puts "Login: Frans, Password"
 
 

@@ -84,9 +84,12 @@ $streak-height: 80px;
 }
 .friends-ui-cards-list {
   overflow-y: scroll;
-  height: 100px;
+  height: 200px;
 
 }
 .friend-name{
   flex-grow: 1;
+}
+.friend-trees{
+  margin-right: 5px;
 }
