@@ -1,5 +1,5 @@
 user7 = User.new(username: "Frans", email: "frans@example.com" , password: "Password", password_confirmation: 'Password')
-img = open('https://images.unsplash.com/photo-1472711795975-42c5b4ee828c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+img = open('https://res-2.cloudinary.com/crunchbase-production/image/upload/c_thumb,h_256,w_256,f_auto,g_faces,z_0.7,q_auto:eco/ggbjbwmdzcrtu9wwgf6u')
 user7.avatar.attach(io: img, filename: 'avatar.png', content_type: 'image/png')
 user7.save
 
