@@ -21,6 +21,18 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113540683-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-113540683-8');
+    </script>
+
     <%= favicon_link_tag(source = "favicon.ico") %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
